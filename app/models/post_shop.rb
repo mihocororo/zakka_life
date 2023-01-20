@@ -1,0 +1,2 @@
+class PostShop < ApplicationRecord
+end

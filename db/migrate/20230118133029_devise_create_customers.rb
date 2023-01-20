@@ -14,6 +14,10 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       ## Rememberable
       t.datetime :remember_created_at
 
+      t.string :nickname, null: false, default: ""
+      # 退会ステータス
+      t.boolean :is_deleted, default: false, null:false
+
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
