@@ -1,2 +1,14 @@
 <h1>Admin::Areas#edit</h1>
 <p>Find me in app/views/admin/areas/edit.html.erb</p>
+ <h4 class="mark mb-5">エリア編集</h4>
+
+<div class="field">
+  <%= form_with model: @area, url: admin_area_path, method: :patch, remote: true do |f| %>
+    <%= f.label :name, "エリア名" %>
+    <%= f.text_field :name, autocomplete: "name" %>
+  </div>
+
+<div class="actions2">
+    <%= f.submit "変更を保存",class:"btn btn-outline-success mt-5" %>
+</div>
+  <% end %>

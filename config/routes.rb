@@ -1,60 +1,67 @@
 Rails.application.routes.draw do
 
+#管理者
   namespace :admin do
-    get 'post_rooms/show'
-    get 'post_rooms/update'
-  end
-  namespace :admin do
+
+
+    resources :post_rooms, only: [:show, :update]
+
     get 'post_shops/show'
     get 'post_shops/update'
-  end
-  namespace :admin do
+
     get 'genres/index'
     get 'genres/create'
     get 'genres/edit'
     get 'genres/update'
-  end
-  namespace :admin do
-    get 'areas/index'
-    get 'areas/create'
-    get 'areas/edit'
-    get 'areas/update'
-  end
-  namespace :admin do
+
+    resources :areas
+    # get 'areas/index'
+    # get 'areas/create'
+    # get 'areas/edit'
+    # get 'areas/update'
+
     get 'customers/index'
     get 'customers/show'
     get 'customers/edit'
     get 'customers/update'
   end
-  namespace :public do
-    get 'post_rooms/index'
-    get 'post_rooms/update'
-    get 'post_rooms/destroy'
-    get 'post_rooms/destroy_all'
-    get 'post_rooms/new'
+
+
+#ユーザー
+  scope module: :public do
+
+  #お部屋紹介
+    get 'rooms' => 'post_rooms#index'
+    get 'rooms/:id' => 'post_rooms#update'
+    get 'rooms/:id' => 'post_rooms#destroy'
+    get 'rooms/destroy_all' => 'post_rooms#destroy_all'
+    get 'rooms/new' => 'post_rooms#new'
+
+  #ショップ投稿
+    get 'shops' => 'post_shops#index'
+    get 'shops/:id' => 'post_shops#update'
+    get 'shops/:id' => 'post_shops#destroy'
+    get 'shops/destroy_all' => 'post_shops#destroy_all'
+    get 'shops/new' => 'post_shops#new'
+
+  #お気に入りページ
+    resources :likes, only: [:show, :index]
+  #会員情報
+    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
+    # get 'customers/show'
+    # get 'customers/edit'
+    # get 'customers/update'
+    # get 'customers/unsubscribe'
+    # get 'customers/withdraw'
+
+#トップ画面
+    get '/' => 'homes#top'
+#アバウト画面
+    get 'about' => 'homes#about'
+
+
   end
-  namespace :public do
-    get 'post_shops/index'
-    get 'post_shops/update'
-    get 'post_shops/destroy'
-    get 'post_shops/destroy_all'
-    get 'post_shops/new'
-  end
-  namespace :public do
-    get 'likes/index'
-    get 'likes/show'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
-    get 'customers/unsubscribe'
-    get 'customers/withdraw'
-  end
-  namespace :public do
-    get 'homes/top'
-  end
- # 顧客用
+ # ユーザー用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
