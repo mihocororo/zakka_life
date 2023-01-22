@@ -10,4 +10,9 @@ class Admin::PostShopsControllerTest < ActionDispatch::IntegrationTest
     get admin_post_shops_update_url
     assert_response :success
   end
+
+  test "should get index" do
+    get admin_post_shops_index_url
+    assert_response :success
+  end
 end

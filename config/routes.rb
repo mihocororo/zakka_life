@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
 
+
+  namespace :admin do
+    get 'post_shops/show'
+    get 'post_shops/update'
+    get 'post_shops/index'
+  end
+  namespace :admin do
+    get 'post_rooms/show'
+    get 'post_rooms/update'
+    get 'post_rooms/index'
+  end
 #管理者
   namespace :admin do
 
+    get '/' => 'homes#top'
+    resources :post_rooms, only: [:show, :update,:index]
+    resources :post_shops, only: [:show, :update,:index]
 
-    resources :post_rooms, only: [:show, :update]
 
-    get 'post_shops/show'
-    get 'post_shops/update'
 
     get 'genres/index'
     get 'genres/create'
@@ -20,10 +31,9 @@ Rails.application.routes.draw do
     # get 'areas/edit'
     # get 'areas/update'
 
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
+  #顧客情報
+    resources :customers, only: [:index, :show, :edit, :update]
+
   end
 
 

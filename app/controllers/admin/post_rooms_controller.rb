@@ -4,4 +4,8 @@ class Admin::PostRoomsController < ApplicationController
 
   def update
   end
+
+  def index
+    @post_rooms = PostRoom.all
+  end
 end

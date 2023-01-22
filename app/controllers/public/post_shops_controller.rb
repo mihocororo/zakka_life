@@ -1,5 +1,6 @@
 class Public::PostShopsController < ApplicationController
   def index
+    
   end
 
   def update

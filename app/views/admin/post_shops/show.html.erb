@@ -1,2 +1,23 @@
 <h1>Admin::PostShops#show</h1>
 <p>Find me in app/views/admin/post_shops/show.html.erb</p>
+<h4>雑貨屋投稿一覧</h4>
+
+  <div class="col-md-8 offset-md-1">
+<table class="table">
+
+    <tr>
+      <th>投稿写真</th>
+      <th>投稿者名</th>
+      <th>投稿日</th>
+      <th>エリア</th>
+      <th>紹介文</th>
+    </tr>
+
+    <tr>
+      <td><%= @post_shop.name %></td>
+      <!--<td><%= @post_shop.created_at.strftime('%Y/%m/%d') %></td>-->
+      <!--<td><%= @post_shop.introduction %></td>-->
+    </tr>
+
+</table>
+</div>

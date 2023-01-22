@@ -1,5 +1,6 @@
 class Public::PostRoomsController < ApplicationController
   def index
+    
   end
 
   def update
