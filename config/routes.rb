@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   #お気に入りページ
     resources :likes, only: [:show, :index]
   #会員情報
-    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
+    resources :customers, only: [:edit, :update, :unsubscribe, :withdraw]
     # get 'customers/show'
     # get 'customers/edit'
     # get 'customers/update'
@@ -77,6 +77,7 @@ devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
+
 
 # 管理者用
 # URL /admin/sign_in ...
