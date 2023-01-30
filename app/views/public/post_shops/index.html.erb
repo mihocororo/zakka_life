@@ -1,2 +1,34 @@
-<h1>Public::PostShops#index</h1>
-<p>Find me in app/views/public/post_shops/index.html.erb</p>
+<h4 class="mark">
+  <div class="container">
+    <div class="row mb-2">
+    <div class="col">店舗一覧</div>
+
+  <div class="col">
+    <%= link_to shops_new_path, class: "no-underline" do %>
+  <i class="fa-solid fa-circle-plus"></i>
+    <% end %>
+  </div></div></div>
+</h4>
+
+  <div class="col-md-8 offset-md-1">
+<table class="table">
+<thead>
+    <tr>
+      <th>店舗画像</th>
+      <th>店舗名</th>
+      <th>投稿者</th>
+      <th>エリア</th>
+      </tr></thead>
+<% @post_shops.each do |post_shop| %>
+<tr>
+      <td>
+        <% if post_shop.image.attached? %>
+        <%= image_tag post_shop.image, size: "100x100" %>
+        <% else %>
+        <% end %></td>
+      <td><%= link_to post_shop.name , shops_path(post_shop) ,class:"btn btn-outline-danger" %></td>
+      <td><%= post_shop.customer.nickname %></td>
+
+      <td><%= post_shop.area.name %></td>
+
+<% end %>

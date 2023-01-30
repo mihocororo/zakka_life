@@ -1,9 +1,15 @@
 
 <main>
   <h4>エリア一覧</h4>
+  <% @areas.each do |area| %>
+  <tr>
+    <td><%= area.name %></td>
+  </tr>
+
+  <% end %>
 
 
-</main>
+
 
 <div class="d-grid gap-2 d-md-block">
 <a class="btn btn-secondary" href="/shops" type="submit">
@@ -16,3 +22,4 @@
   <img src="/assets/room.jpg" width="400" height="300" border="0" onMouseOver="this.src='/assets/room2.jpg'"　width="400" height="300" onMouseOut="this.src='/assets/room.jpg'" />
 </a>
 </div>
+</main>

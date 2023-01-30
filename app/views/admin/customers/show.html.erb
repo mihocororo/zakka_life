@@ -1,33 +1,40 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<body>
+  <div class = "title">
+    <h4 class="mark mb-5"><%= @customer.name %>さんの会員詳細</h4>
+  </div>
+  <div class = "text">
+    <div class="container w-50 mt-2">
+      <div class="row row-cols-2 mb-2">
+    <div class="col">会員ID</div>
+    <div class="col"><%= @customer.id %></div>
+    </div>
 
-<h4 class="mark mb-5"><%= @customer.name %>さんの会員詳細</h4>
-<div class="container w-50 mt-2">
-  <div class="row row-cols-2 mb-2">
-<div class="col">会員ID</div>
-<div class="col"><%= @customer.id %></div>
-</div>
-<div class="row row-cols-2 mb-2">
-<div class="col">氏名</div>
-<div class="col"><%= @customer.name %></div>
-</div>
-<div class="row row-cols-2 mb-2">
-<div class="col">投稿名</div>
-<div class="col"><%= @customer.nickname %></div>
-</div>
-<div class="row row-cols-2 mb-2">
-<div class="col">メールアドレス</div>
-<div class="col"><%= @customer.email %></div>
-</div>
-<div class="row row-cols-2 mb-2">
-<div class="col">会員ステータス</div>
-<div class="col">
-<% if @customer.is_deleted== false %>有効
-<% else %>
+    <div class="row row-cols-2 mb-2">
+    <div class="col">氏名</div>
+    <div class="col"><%= @customer.name %></div>
+    </div>
+
+    <div class="row row-cols-2 mb-2">
+    <div class="col">投稿名</div>
+    <div class="col"><%= @customer.nickname %></div>
+    </div>
+
+    <div class="row row-cols-2 mb-2">
+    <div class="col">メールアドレス</div>
+    <div class="col"><%= @customer.email %></div>
+    </div>
+
+    <div class="row row-cols-2 mb-2">
+    <div class="col">会員ステータス</div>
+    <div class="col">
+    <% if @customer.is_deleted== false %>有効
+    <% else %>
       退会
-<% end %></div>
+    <% end %></div>
+    </div>
+
+
+    <div class="row row-cols-2 mb-2">
+    <div class="col"><%= link_to "編集する",edit_admin_customer_path,class:"btn btn-outline-success" %></div>
 </div>
-
-
-<div class="row row-cols-2 mb-2">
-<div class="col"><%= link_to "編集する",edit_admin_customer_path,class:"btn btn-outline-success" %></div>
+</body>

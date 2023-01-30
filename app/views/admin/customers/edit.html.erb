@@ -1,33 +1,33 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
-
-<h4 class="mark mb-5"><%= @customer.name %>さんの会員情報編集</h4>
-<div class="container w-75 mt-2">
-  <div class="row row-cols-2 mb-2">
-<div class="col">会員ID</div>
-<div class="col"><%= @customer.id %></div>
-</div>
-<%= form_with model: @customer, url: admin_customer_path do |f| %>
-    <div class="row row-cols-2 mb-2">
-    <div class="col"><%= f.label :氏名 %></div>
-    <div class="col"><%= f.text_field :name %></div>
+<body>
+  <div class = "title">
+    <h4 class="mark mb-5"><%= @customer.name %>さんの会員情報編集</h4></div>
+    <div class = "text">
+    <div class="container w-75 mt-2">
+      <div class="row row-cols-2 mb-2">
+    <div class="col">会員ID</div>
+    <div class="col"><%= @customer.id %></div>
     </div>
+    <%= form_with model: @customer, url: admin_customer_path do |f| %>
+        <div class="row row-cols-2 mb-2">
+        <div class="col"><%= f.label :氏名 %></div>
+        <div class="col"><%= f.text_field :name %></div>
+        </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col"><%= f.label :投稿名 %></div>
+          <div class="col"><%= f.text_field :nickname %></div>
+          </div>
+        <div class="row row-cols-2 mb-2">
+          <div class="col"><%= f.label :メールアドレス %></div>
+          <div class="col"><%= f.text_field :email %></div>
+        </div>
     <div class="row row-cols-2 mb-2">
-      <div class="col"><%= f.label :投稿名 %></div>
-      <div class="col"><%= f.text_field :nickname %></div>
-      </div>
-    <div class="row row-cols-2 mb-2">
-      <div class="col"><%= f.label :メールアドレス %></div>
-      <div class="col"><%= f.text_field :email %></div>
+        <div class="col"><%= f.label :会員ステータス %></div>
+        <div class="col"><%= f.radio_button :is_deleted, false,checked: false %>
+        <%= f.label :is_deleted, "有効" %>
+        <%= f.radio_button :is_deleted, true %>
+        <%= f.label :is_deleted, "退会" %></div>
+        </div>
+        <%= f.submit "変更を保存", class: "btn btn-outline-success" %>
+    <% end %>
     </div>
-<div class="row row-cols-2 mb-2">
-    <div class="col"><%= f.label :会員ステータス %></div>
-    <div class="col"><%= f.radio_button :is_deleted, false,checked: false %>
-    <%= f.label :is_deleted, "有効" %>
-    <%= f.radio_button :is_deleted, true %>
-    <%= f.label :is_deleted, "退会" %></div>
-    </div>
-    <%= f.submit "変更を保存", class: "btn btn-outline-success" %>
-<% end %>
-
-  </main>
+    </body>

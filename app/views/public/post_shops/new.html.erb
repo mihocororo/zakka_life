@@ -1,2 +1,33 @@
-<h1>Public::PostShops#new</h1>
-<p>Find me in app/views/public/post_shops/new.html.erb</p>
+<body>
+  <div class = "title">
+    <h4 class="mark mb-5">おすすめの雑貨屋新規投稿</h4></div>
+  <div class = "text">
+      <%= form_with model: @post_shop, url: shops_path do |f| %>
+      <div class="container w-50">
+      <div class="row row-cols-2 mb-2">
+      <div class="col">店舗画像</div>
+      <div class="col"><%= f.file_field :image, accept: "image/*" %></div>
+      </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col">店舗名</div>
+      <div class="col"><%= f.text_field :name %></div>
+    </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col">店舗説明</div>
+      <div class="col"><%= f.text_area :introduction %></div>
+    </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col">エリア</div>
+      <div class="col"><%= f.collection_select :area_id, Area.all, :id, :name, include_blank: "--選択して下さい--" %></div>
+    </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col"></div>
+      <div class="col"><%= f.submit '新規登録' %></div>
+    </div>
+
+
+  </div>
+  </div>
+
+  <% end %>
+

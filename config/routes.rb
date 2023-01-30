@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  # 管理者用
+# URL /admin/sign_in ...
+devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+}
+
+   # ユーザー用
+# URL /customers/sign_in ...
+devise_for :customers,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
 
   namespace :admin do
     get 'post_shops/show'
@@ -48,11 +60,13 @@ Rails.application.routes.draw do
     get 'rooms/new' => 'post_rooms#new'
 
   #ショップ投稿
+    get 'shops/new' => 'post_shops#new'
+    post 'shops' => 'post_shops#create'
     get 'shops' => 'post_shops#index'
     get 'shops/:id' => 'post_shops#update'
     get 'shops/:id' => 'post_shops#destroy'
     get 'shops/destroy_all' => 'post_shops#destroy_all'
-    get 'shops/new' => 'post_shops#new'
+
 
   #お気に入りページ
     resources :likes, only: [:show, :index]
@@ -71,18 +85,8 @@ Rails.application.routes.draw do
 
 
   end
- # ユーザー用
-# URL /customers/sign_in ...
-devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-}
 
 
-# 管理者用
-# URL /admin/sign_in ...
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-}
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

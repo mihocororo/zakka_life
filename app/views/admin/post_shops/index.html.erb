@@ -13,18 +13,18 @@
       <th>エリア</th>
       <th>紹介文</th>
     </tr>
-<%= @post_shops.each do |post_shop| %>
+<% @post_shops.each do |post_shop| %>
     <tr>
       <td>
-        <% if list.image.attached? %>
-        <%= image_tag list.image, size: "200x200" %>
+        <% if post_shop.image.attached? %>
+        <%= image_tag post_shop.image, size: "200x200" %>
         <% else %>
         <%= image_tag 'no_image', size: "200x200" %>
         <% end %>
       </td>
       <td><%= post_shop.name %></td>
       <td><%= post_shop.created_at.strftime('%Y/%m/%d') %></td>
-      <td><%= post_shop.area %></td>
+      <td><%= post_shop.area.name %></td>
       <td><%= post_shop.introduction %></td>
     </tr>
 <% end %>

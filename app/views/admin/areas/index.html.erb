@@ -1,34 +1,52 @@
-<h4 class="mark">エリア追加</h4>
-
-  <%= form_with model: @area, url: admin_areas_path do |f| %>
-
-<div class="field">
-    <%= f.label :エリア名 %><br />
-
-
-      <%= f.text_field :name %>
+<body>
+  <div class = "title">
+    <h4 class="mark">エリア追加・一覧</h4>
   </div>
 
-<div class="actions2">
-    <%= f.submit "新規登録",class:"btn btn-outline-danger mt-5" %>
-  <% end %>
-</div>
-  <tbody>
+  <div class="container">
+    <div class="row">
+    <div class="col">
 
-<div class="col-md-2 offset-md-1">
-<table class="table">
+  <div class = "text">
+    <h4>エリア追加</h4>
+    <%= form_with model: @area, url: admin_areas_path do |f| %>
 
-<h4>エリア一覧</h4>
-<% @areas.each do |area| %>
-    <tr>
+  <div class="field">
+      <%= f.label :エリア名 %><br />
 
-      <td><%= area.name %></td>
-      <td><%= link_to "編集する", edit_admin_area_path(area) ,class:"btn btn-outline-success" %></td>
 
-    </tr>
-<% end %>
+        <%= f.text_field :name %>
+  </div>
+
+  <div class="actions2">
+      <%= f.submit "新規登録",class:"btn btn-outline-danger mt-5" %>
+    <% end %>
+  </div>
+    </div>
+    </div>
+
+  <div class="col">
+  <table class="table">
+    <thead>
+      <tr>
+        <!--<div class = "text">-->
+        <h4>エリア一覧</h4>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @areas.each do |area| %>
+      <tr>
+        <td><%= area.name %></td>
+        <td><%= link_to "編集する", edit_admin_area_path(area) ,class:"btn btn-outline-success" %></td>
+      </tr>
+      <% end %>
     </tbody>
-    </table>
+  </table>
+    </div>
+    </div>
+  </div>
+  </body>
 
 
 

@@ -3,9 +3,14 @@
 
 
 .title {
-//   margin-top: 100px;
   display: inline-block;
 }
+
+.text{
+  text-align: left;
+  margin-left: 150px;
+}
+
 
 .logo {
     text-align: left;
@@ -27,11 +32,3 @@ footer{
   font-family: "g_pencilkaisho_free";
 }
 
-// .card-body_hover {
-// background-color: #ee6354;
-
-// }
-
-// .card-body_hover:hover {
-// background-color: #37beb0;
-// }

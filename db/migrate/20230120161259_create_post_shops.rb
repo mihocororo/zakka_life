@@ -6,8 +6,8 @@ class CreatePostShops < ActiveRecord::Migration[6.1]
       t.integer :customer_id
       t.integer :area_id
       t.string :name, null:false
-      t.integer :image_id, null:false
-      t.integer :nickname, null:false
+      t.integer :image_id
+      t.integer :nickname
       t.text :introduction, null:false
     end
   end
