@@ -1,0 +1,21 @@
+<div class="col-md-8 offset-md-1">
+<table class="table">
+<h4 class="mark"><%= @post_shop.area.name %>一覧</h4>
+<thead>
+    <tr>
+      <th>店舗画像</th>
+      <th>店舗名</th>
+      <th>説明</th>
+      <th>エリア</th>
+      <th>投稿者</th>
+      </tr></thead>
+      <tr>
+      <td><%= image_tag @post_shop.image, size: "100x100" %></td>
+      <td><%= @post_shop.name %></td>
+      <td><%= @post_shop.introduction %></td>
+      <td><%= @post_shop.area.name %></td>
+      <td><%= @post_shop.customer.nickname %></td>
+
+
+
+

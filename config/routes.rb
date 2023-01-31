@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'areas/index'
+  end
   # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -63,6 +66,8 @@ devise_for :customers,skip: [:passwords], controllers: {
     get 'shops/new' => 'post_shops#new'
     post 'shops' => 'post_shops#create'
     get 'shops' => 'post_shops#index'
+    get 'shops/:id' => 'post_shops#index'
+    get 'shops/:id' => 'post_shops#show'
     get 'shops/:id' => 'post_shops#update'
     get 'shops/:id' => 'post_shops#destroy'
     get 'shops/destroy_all' => 'post_shops#destroy_all'
@@ -82,6 +87,9 @@ devise_for :customers,skip: [:passwords], controllers: {
     get '/' => 'homes#top'
 #アバウト画面
     get 'about' => 'homes#about'
+
+#エリア別一覧
+     get 'areas/:id' => 'areas#index'
 
 
   end

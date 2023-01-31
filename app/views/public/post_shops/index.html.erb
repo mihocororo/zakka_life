@@ -26,9 +26,10 @@
         <%= image_tag post_shop.image, size: "100x100" %>
         <% else %>
         <% end %></td>
-      <td><%= link_to post_shop.name , shops_path(post_shop) ,class:"btn btn-outline-danger" %></td>
+      <td><%= link_to post_shop.name, "/shops/#{post_shop.id}" ,class:"btn btn-outline-danger" %></td>
       <td><%= post_shop.customer.nickname %></td>
 
       <td><%= post_shop.area.name %></td>
 
 <% end %>
+
