@@ -1,4 +1,10 @@
 <h1>Public::Areas#index</h1>
 <p>Find me in app/views/public/areas/index.html.erb</p>
-<!--<h4 class="mark"><= area.name %>一覧</h4>-->
-<%= @areas_id %>
+<% @areas.each do |area| %>
+      <tr>
+        <td><%= area.id %></td>
+        <td>
+
+      </tr>
+      <% end %>
+      <%= area.id %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   namespace :public do
     get 'areas/index'
   end
@@ -55,6 +56,10 @@ devise_for :customers,skip: [:passwords], controllers: {
 #ユーザー
   scope module: :public do
 
+  #レビュー機能
+    resources :shop_comments, only: [:show, :index, :update, :new, :edit]
+
+
   #お部屋紹介
     get 'rooms' => 'post_rooms#index'
     get 'rooms/:id' => 'post_rooms#update'
@@ -66,7 +71,7 @@ devise_for :customers,skip: [:passwords], controllers: {
     get 'shops/new' => 'post_shops#new'
     post 'shops' => 'post_shops#create'
     get 'shops' => 'post_shops#index'
-    get 'shops/:id' => 'post_shops#index'
+    # get 'shops/:id' => 'post_shops#index'
     get 'shops/:id' => 'post_shops#show'
     get 'shops/:id' => 'post_shops#update'
     get 'shops/:id' => 'post_shops#destroy'
