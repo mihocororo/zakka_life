@@ -15,6 +15,7 @@ class Public::PostShopsController < ApplicationController
 
   def show
     @post_shop = PostShop.find(params[:id])
+    @shop_comment = ShopComment.new
 
   end
 
@@ -27,6 +28,8 @@ class Public::PostShopsController < ApplicationController
     else
       redirect_to new_shop_path
     end
+
+
   end
 
   def update

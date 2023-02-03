@@ -1,2 +1,29 @@
-<h1>Public::PostRooms#new</h1>
-<p>Find me in app/views/public/post_rooms/new.html.erb</p>
+<body>
+  <div class = "title">
+    <h4 class="mark mb-5">お部屋紹介</h4></div>
+  <div class = "text">
+      <%= form_with model: @post_room, url: rooms_path do |f| %>
+      <div class="container w-50">
+      <div class="row row-cols-2 mb-2">
+      <div class="col">お部屋画像</div>
+      <div class="col"><%= f.file_field :image, accept: "image/*" %></div>
+      </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col">タイトル</div>
+      <div class="col"><%= f.text_field :name %></div>
+    </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col">お部屋説明</div>
+      <div class="col"><%= f.text_area :comment %></div>
+    </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col"></div>
+      <div class="col"><%= f.submit '新規登録' %></div>
+    </div>
+
+
+  </div>
+  </div>
+
+    <% end %>
+

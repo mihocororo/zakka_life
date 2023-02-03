@@ -61,11 +61,13 @@ devise_for :customers,skip: [:passwords], controllers: {
 
 
   #お部屋紹介
+    get 'rooms/new' => 'post_rooms#new'
+    post 'rooms' => 'post_rooms#create'
     get 'rooms' => 'post_rooms#index'
     get 'rooms/:id' => 'post_rooms#update'
     get 'rooms/:id' => 'post_rooms#destroy'
     get 'rooms/destroy_all' => 'post_rooms#destroy_all'
-    get 'rooms/new' => 'post_rooms#new'
+
 
   #ショップ投稿
     get 'shops/new' => 'post_shops#new'

@@ -10,6 +10,8 @@ class Public::ShopCommentsController < ApplicationController
 
   def new
     @shop_comment = ShopComment.new
+    # @shop_comment.save
+    # redirect_to '/shops'
   end
 
   def edit

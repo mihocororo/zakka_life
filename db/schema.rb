@@ -92,10 +92,10 @@ ActiveRecord::Schema.define(version: 2023_02_01_165003) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "customer_id"
-    t.string "name", null: false
+    t.string "name"
     t.integer "image_id"
     t.integer "nickname"
-    t.text "comment", null: false
+    t.text "comment"
   end
 
   create_table "post_shops", force: :cascade do |t|
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2023_02_01_165003) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "customer_id"
     t.integer "area_id"
+    t.integer "shop_comment_id"
     t.string "name", null: false
     t.integer "image_id"
     t.integer "nickname"
