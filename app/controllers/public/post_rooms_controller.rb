@@ -1,10 +1,17 @@
 class Public::PostRoomsController < ApplicationController
   def index
     @post_rooms = PostRoom.all
+    # @post_room = PostRoom.find(params[:id])
 
   end
 
   def update
+    @post_room = PostRoom.find(params[:id])
+    if @post_room.update(post_room_params)
+    redirect_to rooms_path
+    else
+    render 'edit'
+    end
   end
 
   def destroy
@@ -21,6 +28,9 @@ class Public::PostRoomsController < ApplicationController
     end
 
 
+  end
+  def edit
+    @post_room = PostRoom.find(params[:id])
   end
 
   def destroy_all

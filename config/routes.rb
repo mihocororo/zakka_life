@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
 
-  namespace :public do
-    get 'areas/index'
-  end
+  # namespace :public do
+  #   get 'areas/index'
+  # end
   # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -18,15 +18,17 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 
   namespace :admin do
+    #店舗
     get 'post_shops/show'
     get 'post_shops/update'
     get 'post_shops/index'
-  end
-  namespace :admin do
+    #部屋
     get 'post_rooms/show'
     get 'post_rooms/update'
     get 'post_rooms/index'
   end
+
+
 #管理者
   namespace :admin do
 
@@ -53,6 +55,7 @@ devise_for :customers,skip: [:passwords], controllers: {
   end
 
 
+
 #ユーザー
   scope module: :public do
 
@@ -68,6 +71,8 @@ devise_for :customers,skip: [:passwords], controllers: {
     get 'rooms/:id' => 'post_rooms#destroy'
     get 'rooms/destroy_all' => 'post_rooms#destroy_all'
 
+    get 'rooms/:id/edit' => 'post_rooms#edit', as: 'edit_room'
+    patch 'rooms/:id/edit' => 'post_rooms#update', as: 'update_room'
 
   #ショップ投稿
     get 'shops/new' => 'post_shops#new'
@@ -79,16 +84,27 @@ devise_for :customers,skip: [:passwords], controllers: {
     get 'shops/:id' => 'post_shops#destroy'
     get 'shops/destroy_all' => 'post_shops#destroy_all'
 
+    get 'shops/:id/edit' => 'post_shops#edit', as: 'edit_shop'
+    patch 'shops/:id/edit' => 'post_shops#update', as: 'update_shop'
 
-  #お気に入りページ
-    resources :likes, only: [:show, :index]
+
+  #マイページ
+    get 'my_page' => 'customers#show'
+
   #会員情報
-    resources :customers, only: [:edit, :update, :unsubscribe, :withdraw]
-    # get 'customers/show'
-    # get 'customers/edit'
-    # get 'customers/update'
-    # get 'customers/unsubscribe'
-    # get 'customers/withdraw'
+    resources :customers, only: [:edit, :update] do
+      get :likes, on: :collection
+    end
+  #退会
+    get 'unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch 'withdraw' => 'customers#withdraw', as: 'withdrawal'
+
+
+    resources :post_shops, expect: [:index] do
+      resource :likes, only: [:create, :destroy]
+
+    end
+
 
 #トップ画面
     get '/' => 'homes#top'

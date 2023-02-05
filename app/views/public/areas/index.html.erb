@@ -1,10 +1,22 @@
-<h1>Public::Areas#index</h1>
-<p>Find me in app/views/public/areas/index.html.erb</p>
-<% @areas.each do |area| %>
-      <tr>
-        <td><%= area.id %></td>
-        <td>
+<h4 class="mark"><%= @area.name %>店舗一覧</h4>
+  <div class="col-md-8 offset-md-1">
+<table class="table">
+<thead>
+    <tr>
+      <th>店舗画像</th>
+      <th>店舗名</th>
+      <th>投稿者</th>
+      </tr></thead>
+<% @post_shops.each do |post_shop| %>
+<tr>
+      <td>
+        <% if post_shop.image.attached? %>
+        <%= image_tag post_shop.image, size: "100x100" %>
+        <% else %>
+        <% end %></td>
+      <td><%= post_shop.name %></td>
+      <td><%= post_shop.customer.nickname %></td>
 
-      </tr>
-      <% end %>
-      <%= area.id %>
+
+
+<% end %>

@@ -1,5 +1,3 @@
-<h1>Public::PostRooms#index</h1>
-<p>Find me in app/views/public/post_rooms/index.html.erb</p>
 <h4 class="mark">
   <div class="container">
     <div class="row mb-2">
@@ -27,9 +25,9 @@
         <%= image_tag post_room.image, size: "100x100" %>
         <% else %>
         <% end %></td>
-      <td><%= link_to post_room.name, "/rooms/#{post_room.id}" ,class:"btn btn-outline-danger" %></td>
+      <td><%= post_room.name %></td>
       <td><%= post_room.customer.nickname %></td>
-
+      <td><%= link_to '編集する', "/rooms/#{post_room.id}/edit", class:"btn btn-outline-success" %></td>
 
 
 

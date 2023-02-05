@@ -1,2 +1,43 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="col-md-8 offset-md-1">
+<table class="table">
+<h4 class="mark">マイページ</h4>
+<a>登録情報</a> <a class="btn btn-outline-success m-5" href="/customers/information/edit" role="button">編集する</a>
+  <table class="table table-striped table-hover w-50">
+  <tbody>
+    <tr>
+      <td>氏名</td>
+      <td><%= @customer.name %></td>
+    </tr>
+    <tr>
+      <td>投稿名</td>
+      <td><%= @customer.nickname %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @customer.email %></td>
+    </tr>
+
+</table>
+  <h4>お気に入り一覧</h4>
+  <thead>
+    <tr>
+      <th>投稿者名</th>
+      <th>店舗画像</th>
+      <th>店舗名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @likes.each do |like| %>
+      <tr>
+        <td><%= image_tag like.post_shop.image, size: "100x100" %></td>
+        <td>
+        <td><%= like.post_shop.customer.nickname %></td>
+        <td>
+          <%= link_to post_shop_path(like.post_shop) do %>
+            <%= like.post_shop.name %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

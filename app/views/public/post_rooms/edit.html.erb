@@ -1,0 +1,33 @@
+<body class="d-flex h-100 text-left text-black bg-light">
+<%= form_with model: @post_room, url: update_room_path, method: :patch, remote: true do |f| %>
+  <h4 class="mark">お部屋編集</h4>
+  <div class="col-md-8 offset-md-1">
+<table class="table">
+<thead>
+    <tr>
+      <th>お部屋画像</th>
+      <th>タイトル</th>
+      <th>投稿者</th>
+      </tr></thead>
+  <tr>
+    <td>
+  <%= f.file_field :image, accept: "image/*" %></td>
+  <td>
+  <%= f.text_field :name,autocomplete: "name" %></td>
+  <td>
+  <%= f.text_area :comment %></td>
+</tr>
+<th>
+  <%= f.submit '変更を保存' %></th>
+  <% end %>
+  </main>
+
+  <!--<footer class="text-dark-50">-->
+  <!--  <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>-->
+  <!--</footer>-->
+</div>
+
+
+
+  </body>
+</html>

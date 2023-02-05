@@ -2,21 +2,18 @@ class Public::PostShopsController < ApplicationController
   def index
     @post_shops = PostShop.all
 
-    # @area = Area.all
-    # if params[:area_id].present?
-    #   #presentメソッドでparams[:category_id]に値が含まれているか確認 => trueの場合下記を実行
-    #   @area = Area.find(params[:area_id])
-    #   @post_shops = @area.post_shops
-    # end
-
-
 
   end
 
   def show
     @post_shop = PostShop.find(params[:id])
-    @shop_comment = ShopComment.new
 
+    # @shop_comment = ShopComment.new
+
+  end
+
+  def edit
+    @post_shop = PostShop.find(params[:id])
   end
 
   def create
@@ -33,6 +30,13 @@ class Public::PostShopsController < ApplicationController
   end
 
   def update
+    @post_shop = PostShop.find(params[:id])
+    if @post_shop.update(post_shop_params)
+    redirect_to shops_path
+    else
+    render 'edit'
+    end
+
   end
 
   def destroy
@@ -49,6 +53,6 @@ class Public::PostShopsController < ApplicationController
 
   private
   def post_shop_params
-    params.require(:post_shop).permit(:image, :area_id, :name, :introduction, :is_active, :nickname,:customer_id)
+    params.require(:post_shop).permit(:image, :area_id, :name, :introduction, :is_active,:customer_id)
   end
 end
