@@ -1,20 +1,18 @@
-<h5>総合評価</h5>
-<%= form_with model: @shop_comment, url: shops_path do |f| %>
-   <div class="post_form">
-    <%= f.radio_button :overall, 5 ,id: 'star1'%>
-    <label for="star1"><span class="text">最高</span>★</label>
 
-    <%= f.radio_button :overall, 4 ,id: 'star2'%>
-    <label for="star2"><span class="text">良い</span>★</label>
+<%= form_with model: @shop_comment, url: shop_comments_path,local: true do |f| %>
+<!--<= form_for(@shop_comment, :url=> {controller:'shop_comments', action:'create'})do |f| %>-->
+<div class= "star-field">
+    <input id="star5" type="radio" name="shop_comment[star]" value="5" />
+    <label for="star5">★</label>
+    <input id="star4" type="radio"  name="shop_comment[star]" value="4" />
+    <label for="star4">★</label>
+    <input id="star3" type="radio"  name="shop_comment[star]" value="3" />
+    <label for="star3">★</label>
+    <input id="star2" type="radio"  name="shop_comment[star]" value="2" />
+    <label for="star2">★</label>
+    <input id="star1" type="radio"  name="shop_comment[star]" value="1" />
+    <label for="star1">★</label>
 
-    <%= f.radio_button :overall, 3 ,id: 'star3'%>
-    <label for="star3"><span class="text">普通</span>★</label>
-
-    <%= f.radio_button :overall, 2 ,id: 'star4'%>
-    <label for="star4"><span class="text">悪い</span>★</label>
-
-    <%= f.radio_button :overall, 1 ,id: 'star5'%>
-    <label for="star5"><span class="text">最悪</span>★</label>
- </div>
- <%= f.submit '評価する' %>
- <% end %>
+</div>
+<%= f.submit "評価する" %>
+<% end %>

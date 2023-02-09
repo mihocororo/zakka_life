@@ -2,13 +2,16 @@ class Public::PostShopsController < ApplicationController
   def index
     @post_shops = PostShop.all
 
-
   end
+
+
 
   def show
     @post_shop = PostShop.find(params[:id])
+    @shop_comment = ShopComment.new
+    @shop_comments = ShopComment.all
+    # @post_shop.shop_comment_id = 1
 
-    # @shop_comment = ShopComment.new
 
   end
 
@@ -19,12 +22,16 @@ class Public::PostShopsController < ApplicationController
   def create
     @post_shop = PostShop.new(post_shop_params)
     @post_shop.customer_id = current_customer.id
+    @shop_comment = ShopComment.new
 
     if @post_shop.save!
       redirect_to shops_path(@post_shop)
     else
       redirect_to new_shop_path
     end
+
+
+
 
 
   end
@@ -53,6 +60,7 @@ class Public::PostShopsController < ApplicationController
 
   private
   def post_shop_params
-    params.require(:post_shop).permit(:image, :area_id, :name, :introduction, :is_active,:customer_id)
+    params.permit(:image, :area_id, :name, :introduction, :is_active,:customer_id)
   end
+
 end

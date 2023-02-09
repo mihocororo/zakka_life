@@ -5,6 +5,7 @@ class Admin::PostShopsController < ApplicationController
 
   def update
   end
+  
 
   def index
     @post_shops = PostShop.all

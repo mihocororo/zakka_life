@@ -8,11 +8,9 @@ class PostShop < ApplicationRecord
     likes.where(customer_id: customer).exists?
   end
 
-  # has_many :shop_comments
-  # accepts_nested_attributes_for :shop_comments
+  has_many :shop_comments
+  accepts_nested_attributes_for :shop_comments
   validates :name, presence: true
-
-
-
+  # belongs_to :shop_comment, class_name: "Comment"
 
 end

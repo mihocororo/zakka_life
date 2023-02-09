@@ -60,7 +60,9 @@ devise_for :customers,skip: [:passwords], controllers: {
   scope module: :public do
 
   #レビュー機能
-    resources :shop_comments, only: [:show, :index, :update, :new, :edit]
+    resources :shop_comments, only: [:show, :index, :update, :new, :edit, :create] do
+       post 'shop_comments/new' => 'shop_comments#create'
+    end
 
 
   #お部屋紹介
@@ -86,7 +88,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 
     get 'shops/:id/edit' => 'post_shops#edit', as: 'edit_shop'
     patch 'shops/:id/edit' => 'post_shops#update', as: 'update_shop'
-
+    patch 'shops' => 'post_shops#index', as: 'shop'
 
   #マイページ
     get 'my_page' => 'customers#show'
