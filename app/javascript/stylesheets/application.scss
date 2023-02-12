@@ -1,6 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+// navbar
+header {
+  position: absolute;
+  z-index: 999; //背景と被るようにする
+}
+
+// 管理者画面
 
 .title {
   display: inline-block;
@@ -12,10 +19,7 @@
 }
 
 
-.logo {
-    text-align: left;
-    display: inline-block;
-}
+
 
 body {
   // font-family: 'Yu Gothic UI',sans-serif;
@@ -28,11 +32,47 @@ body {
   text-align: center;
 }
 
-footer{
-  font-family: "g_pencilkaisho_free";
+// footer{
+//   font-family: "g_pencilkaisho_free";
+// }
+
+
+
+
+// 会員画面
+
+
+.topmenu{
+  text-align:center;
+}
+
+// aboutページ
+.no-gutters {
+  margin:0;
+  padding:0;
+
 }
 
 
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+  margin:0;
+  padding:0;
+
+}
+
+p{
+    position: absolute;
+    top:30%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size:30px;
+
+
+}
+
+
+// お気に入り
 .star-field{
     display: flex;
     flex-direction: row-reverse;
