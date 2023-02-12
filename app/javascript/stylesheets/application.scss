@@ -1,11 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-// navbar
-header {
-  position: absolute;
-  z-index: 999; //背景と被るようにする
-}
+
+
 
 // 管理者画面
 
@@ -47,6 +44,13 @@ body {
 }
 
 // aboutページ
+
+//aboutページ用ヘッダー
+header {
+  position: absolute;
+  z-index: 999; //背景と被るようにする
+}
+
 .no-gutters {
   margin:0;
   padding:0;

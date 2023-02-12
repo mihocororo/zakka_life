@@ -1,3 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>ZakkaLife</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+
+<!--管理者ヘッダー-->
+<header1>
+<% if request.fullpath.include? "admin" %>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#E5CCFF;">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="/admin">TOP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/admin/areas">エリア一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/customers">会員一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/post_shops">雑貨屋投稿一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/post_rooms">お部屋一覧</a>
+        </li>
+        <li class="nav-item">
+        <% if admin_signed_in? %>
+        <a class="nav-link px-2" href="/admin/sign_out">ログアウト</a>
+        <% else %>
+        <a class="nav-link px-2" href="/admin/sign_in">ログイン</a>
+        <% end %>
+        </li>
+    </div>
+  </div>
+</nav>
+</header1>
+<% else %>
+
+<header>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="/">TOP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/shops">雑貨屋一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/rooms">お部屋一覧</a>
+        </li>
+        <li class="nav-item">
+        <% if customer_signed_in? %>
+        <a class="nav-link px-2" href="/customers/sign_out">ログアウト</a>
+        <% else %>
+        <a class="nav-link px-2" href="/customers/sign_in">ログイン</a>
+        <% end %>
+        </li>
+    </div>
+  </div>
+</nav>
+</header>
+<% end %>
+
+
+    <%= yield %>
+
+</html>
+
+
+
+
  <div class="container-fluid">
   <div class="row">
     <div class="col no-gutters">

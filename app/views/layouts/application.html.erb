@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>ZakkaLife</title>
@@ -10,8 +11,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
 <!--管理者ヘッダー-->
-<header>
+<header1>
 <% if request.fullpath.include? "admin" %>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#E5CCFF;">
   <div class="container-fluid">
@@ -29,6 +31,12 @@
           <a class="nav-link" href="/admin/customers">会員一覧</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/admin/post_shops">雑貨屋投稿一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/post_rooms">お部屋一覧</a>
+        </li>
+        <li class="nav-item">
         <% if admin_signed_in? %>
         <a class="nav-link px-2" href="/admin/sign_out">ログアウト</a>
         <% else %>
@@ -38,10 +46,10 @@
     </div>
   </div>
 </nav>
-</header>
+</header1>
 <% else %>
 
-<header>
+<header1>
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
 
@@ -70,7 +78,7 @@
     </div>
   </div>
 </nav>
-</header>
+</header1>
 <% end %>
 
 

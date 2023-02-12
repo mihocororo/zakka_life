@@ -1,5 +1,3 @@
-<h1>Admin::PostRooms#index</h1>
-<p>Find me in app/views/admin/post_rooms/index.html.erb</p>
 
 <h4>お部屋紹介投稿一覧</h4>
 
@@ -12,11 +10,11 @@
       <th>投稿日</th>
       <th>コメント</th>
     </tr>
-<%= @post_rooms.each do |post_room| %>
+<% @post_rooms.each do |post_room| %>
     <tr>
       <td>
-          <% if list.image.attached? %>
-          <%= image_tag list.image, size: "200x200" %>
+          <% if post_room.image.attached? %>
+          <%= image_tag post_room.image, size: "200x200" %>
           <% else %>
           <%= image_tag 'no_image', size: "200x200" %>
           <% end %>
