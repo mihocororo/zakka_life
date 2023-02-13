@@ -1,16 +1,16 @@
 
 <main>
 <h4>エリア一覧</h4>
-
-<tbody>
+<table>
+<th>
     <% @areas.each do |area| %>
 
-      <td>
-        <%= link_to area.name, "/areas/#{area.id}", class: "text-secondary" %>
-      </td>
+      <tr>
+        <%= link_to area.name, "/areas/#{area.id}", class: "text-secondary" %></br>
+      </tr>
     <% end %>
-</tbody>
-
+</th>
+</table>
 
 <div class = "topmenu">
 <div class="d-grid gap-2">

@@ -1,32 +1,31 @@
-<h4 class="mark">雑貨屋一覧
+<h4>雑貨屋一覧
 <%= link_to "新規投稿", shops_new_path, class:"btn btn-outline-success" %>
 </h4>
   <div class="container">
+  <div class="row">
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        見本<%= image_tag "no_image.jpg",size: "100x120", class: 'card-img-top' %>
+        <button type="button" class="btn btn-outline-danger">店舗名</button>
+        投稿者名：</br>
+        エリア：
+
+      </div>
+</div>
 
 
-  </div>
-
-
-
-<table class="table">
-<thead>
-    <tr>
-      <th>店舗画像</th>
-      <th>店舗名</th>
-      <th>投稿者</th>
-      <th>エリア</th>
-      </tr></thead>
 <% @post_shops.each do |post_shop| %>
-<tr>
-      <td>
-        <% if post_shop.image.attached? %>
-        <%= image_tag post_shop.image, size: "100x100" %>
-        <% else %>
-        <% end %></td>
-      <td><%= link_to post_shop.name, "/shops/#{post_shop.id}" ,class:"btn btn-outline-danger" %></td>
-      <td><%= post_shop.customer.nickname %></td>
+<div class="col-md-3 mb-4">
+      <div class="card">
+        <%= image_tag post_shop.image, size: "150x150", class: 'card-img-top' %>
+      <%= link_to post_shop.name, "/shops/#{post_shop.id}" ,class:"btn btn-outline-dark" %>
+      <%= post_shop.customer.nickname %></br>
 
-      <td><%= post_shop.area.name %></td>
-
+      <%= post_shop.area.name %>
+      </div>
+</div>
 <% end %>
 
+    </div>
+  </div>
+  <!--</div>-->

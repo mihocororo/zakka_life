@@ -1,29 +1,33 @@
-<h4 class="mark">お部屋一覧
 
-    <%= link_to "新規投稿", rooms_new_path, class:"btn btn-outline-success" %>
+<h4>お部屋一覧
+
+
+    <%= link_to "新規投稿", rooms_new_path, class:"btn btn-outline-dark" %>
 
 </h4>
 
-  <div class="col-md-8 offset-md-1">
-<table class="table">
-<thead>
-    <tr>
-      <th>お部屋画像</th>
-      <th>タイトル</th>
-      <th>投稿者</th>
-      </tr></thead>
+  <!--<div class="col-md-8 offset-md-1">-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        見本<%= image_tag "no_image.jpg",size: "200x180", class: 'card-img-top' %>
+        タイトル：</br>
+        投稿者名：
+        <button type="button" class="btn btn-outline-success">編集する</button>
+      </div>
+</div>
+
 <% @post_rooms.each do |post_room| %>
-<tr>
-      <td>
-        <% if post_room.image.attached? %>
-        <%= image_tag post_room.image, size: "100x100" %>
-        <% else %>
-        <% end %></td>
-      <td><%= post_room.name %></td>
-      <td><%= post_room.customer.nickname %></td>
-      <td><%= link_to '編集する', "/rooms/#{post_room.id}/edit", class:"btn btn-outline-success" %></td>
 
-
-
+<div class="col-md-4 mb-4">
+      <div class="card">
+        <%= image_tag post_room.image,size: "200x200", class: 'card-img-top' %>
+        <%= post_room.name %></br>
+        <%= post_room.customer.nickname %>
+        <%= link_to '編集する', "/rooms/#{post_room.id}/edit", class:"btn btn-outline-dark" %>
+      </div>
+</div>
 <% end %>
-
+</div>
+  </div>
