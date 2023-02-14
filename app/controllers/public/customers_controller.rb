@@ -3,6 +3,7 @@ class Public::CustomersController < ApplicationController
     # @customer = Customer.find(params[:id])
     @customer = current_customer
     @likes = Like.where(customer_id: current_customer.id)
+    @shop_comments = ShopComment.where(customer_id: current_customer.id)
   end
 
   def edit

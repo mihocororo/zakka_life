@@ -120,13 +120,12 @@ ActiveRecord::Schema.define(version: 2023_02_08_134720) do
   end
 
   create_table "shop_comments", force: :cascade do |t|
-    t.integer "PostShop_id", null: false
+    t.integer "post_shop_id", null: false
     t.integer "customer_id", null: false
     t.float "rate", default: 0.0, null: false
-    t.text "comment", null: false
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "star"
   end
 
   create_table "shops", force: :cascade do |t|

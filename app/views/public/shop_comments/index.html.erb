@@ -1,14 +1,14 @@
-<h1>Public::ShopComments#index</h1>
-<p>Find me in app/views/public/shop_comments/index.html.erb</p>
+
 <div>
 <% @shop_comments.each do |t| %>
-<div class="star">
-    <% if t.star? %>
-    <% for i in 1..t.sar do %>
+<%= t.post_shop.name %>
+<div class="rate">
+    <% if t.rate? %>
+    <% for i in 1..t.rate do %>
     ★
     <% end %>
     <% end %>
-    <% shop_comment.star %>
+<%= link_to "削除", destroy_shop_comment_path(t.id), method: :delete %>
 </div>
 
 <% end %>

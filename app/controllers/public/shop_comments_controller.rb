@@ -1,6 +1,7 @@
 class Public::ShopCommentsController < ApplicationController
   def index
-    @shop_comments = ShopComment.all
+    @shop_comments = ShopComment.where(customer_id: current_customer.id)
+    # @shop_comment = ShopComment.find(params[:id])
   end
 
   def update
@@ -18,17 +19,22 @@ class Public::ShopCommentsController < ApplicationController
 
   def create
   @shop_comment = ShopComment.new(shop_comment_params)
+  @shop_comment.customer_id = current_customer.id
+
     if @shop_comment.save!
-      redirect_to shop_comments_path
+      redirect_to shop_path
     else
       redirect_to new_shop_path
     end
   end
 
-  def edit
+  def destroy
+    shop_comment = ShopComment.find(params[:id])
+    shop_comment.destroy
+    redirect_to '/my_page'
   end
   private
   def shop_comment_params
-    params.require(:shop_comment).permit(:title, :learn, :about, :category, :star)
+    params.require(:shop_comment).permit(:title, :learn, :about, :category, :rate,:post_shop_id)
   end
 end

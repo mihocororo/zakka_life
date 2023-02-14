@@ -10,7 +10,6 @@ class Public::PostShopsController < ApplicationController
     @post_shop = PostShop.find(params[:id])
     @shop_comment = ShopComment.new
     @shop_comments = ShopComment.all
-    # @post_shop.shop_comment_id = 1
 
 
   end

@@ -31,27 +31,28 @@
 
 
 <!--<= form_with model: @shop_comment, url: shop_path,local: true do |f| %>-->
-<%= form_for(@shop_comment, :url=> {controller:'shop_comments', action:'create'})do |f| %>
+<%= form_for(@shop_comment, :url=> {controller:'public/shop_comments', action:'create'})do |f| %>
 <div class= "star-field">
-    <input id="star5" type="radio" name="shop_comment[star]" value="5" />
+    <input id="star5" type="radio" name="shop_comment[rate]" value="5" />
     <label for="star5">★</label>
-    <input id="star4" type="radio"  name="shop_comment[star]" value="4" />
+    <input id="star4" type="radio"  name="shop_comment[rate]" value="4" />
     <label for="star4">★</label>
-    <input id="star3" type="radio"  name="shop_comment[star]" value="3" />
+    <input id="star3" type="radio"  name="shop_comment[rate]" value="3" />
     <label for="star3">★</label>
-    <input id="star2" type="radio"  name="shop_comment[star]" value="2" />
+    <input id="star2" type="radio"  name="shop_comment[rate]" value="2" />
     <label for="star2">★</label>
-    <input id="star1" type="radio"  name="shop_comment[star]" value="1" />
+    <input id="star1" type="radio"  name="shop_comment[rate]" value="1" />
     <label for="star1">★</label>
 
+<%= hidden_field_tag "shop_comment[post_shop_id]", @post_shop.id %>
 </div>
 <%= f.submit "評価する" %>
 <% end %>
 
 <% @shop_comments.each do |t| %>
-<div class="star">
-    <% if t.star? %>
-    <% for i in 1..t.sar do %>
+<div class="rate">
+    <% if t.rate? %>
+    <% for i in 1..t.rate do %>
     ★
     <% end %>
     <% end %>

@@ -61,9 +61,10 @@ devise_for :customers,skip: [:passwords], controllers: {
 
   #レビュー機能
     resources :shop_comments, only: [:show, :index, :update, :new, :edit, :create] do
-       post 'shop_comments/new' => 'shop_comments#create'
-    end
 
+
+    end
+    delete 'shop_comments/:id' => 'shop_comments#destroy', as: 'destroy_shop_comment'
 
   #お部屋紹介
     get 'rooms/new' => 'post_rooms#new'
