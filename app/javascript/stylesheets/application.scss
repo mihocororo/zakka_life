@@ -37,9 +37,22 @@ body {
 
 // 会員画面
 
+// トップ画面
+.top{
+  margin-bottom:40px;
+}
 
 .topmenu{
+
   text-align:center;
+  width:900px;
+  display: inline-block;
+}
+
+.sidebar{
+  width:150px;
+  display: inline-block;
+
 }
 
 // aboutページ

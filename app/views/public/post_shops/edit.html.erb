@@ -1,41 +1,43 @@
-<body class="d-flex h-100 text-left text-black bg-light">
-<%= form_with model: @post_shop, url: update_shop_path, method: :patch, remote: true do |f| %>
-  <h4 class="mark">お部屋編集</h4>
-  <div class="col-md-8 offset-md-1">
-<table class="table">
-<thead>
-    <tr>
-      <th>店舗画像</th>
-      <th>店舗名</th>
-      <th>説明</th>
-      <th>投稿者</th>
-      <th>エリア</th>
-      </tr></thead>
-  <tr>
-    <td>
-  <%= f.file_field :image, accept: "image/*" %></td>
-  <td>
-  <%= f.text_field :name,autocomplete: "name" %></td>
-  <td>
-  <%= f.text_area :introduction %></td>
-  <td><%= @post_shop.customer.nickname %></td>
-  <td>
-    <%= f.collection_select :area_id, Area.all, :id, :name, include_blank: "--選択して下さい--" %>
-  </td>
-</tr>
-<th>
-  <%= f.submit '変更を保存' %></th>
+<body>
+  <div class = "title">
+    <h4 class="mark mb-5">お部屋編集</h4></div>
+  <div class = "text">
+      <%= form_with model: @post_shop, url: update_shop_path, method: :patch, remote: true do |f| %>
+      <div class="container w-50">
+      <div class="row row-cols-2 mb-2">
+      <div class="col">店舗画像</div>
+      <div class="col"><%= f.file_field :image, accept: "image/*" %></div>
+      </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col">店舗名</div>
+      <div class="col"><%= f.text_field :name,autocomplete: "name" %></div>
+    </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col">店舗説明</div>
+      <div class="col"><%= f.text_area :introduction %></div>
+    </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col">投稿者</div>
+      <div class="col"><%= @post_shop.customer.nickname %></div>
+    </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col">エリア</div>
+      <div class="col"><%= f.collection_select :area_id, Area.all, :id, :name, include_blank: "--選択して下さい--" %></div>
+    </div>
+    <div class="row row-cols-2 mb-2">
+      <div class="col"></div>
+      <div class="col"><%= f.submit '変更を保存' %></div>
+    </div>
+
+
+  </div>
+  </div>
+
   <% end %>
-  </main>
 
 
 
-  <!--<footer class="text-dark-50">-->
-  <!--  <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>-->
-  <!--</footer>-->
-</div>
 
 
 
-  </body>
-</html>
+

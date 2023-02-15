@@ -1,22 +1,26 @@
 <h4 class="mark"><%= @area.name %>店舗一覧</h4>
-  <div class="col-md-8 offset-md-1">
-<table class="table">
-<thead>
-    <tr>
-      <th>店舗画像</th>
-      <th>店舗名</th>
-      <th>投稿者</th>
-      </tr></thead>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        見本<%= image_tag "no_image.jpg",size: "200x180", class: 'card-img-top' %>
+        店舗名：</br>
+        投稿者名：
+        <button type="button" class="btn btn-outline-success">編集する</button>
+      </div>
+</div>
 <% @post_shops.each do |post_shop| %>
-<tr>
-      <td>
+<div class="col-md-4 mb-4">
+      <div class="card">
         <% if post_shop.image.attached? %>
-        <%= image_tag post_shop.image, size: "100x100" %>
+        <%= image_tag post_shop.image, size: "200x200", class: 'card-img-top' %>
         <% else %>
-        <% end %></td>
-      <td><%= post_shop.name %></td>
-      <td><%= post_shop.customer.nickname %></td>
-
-
-
+        <% end %>
+      <%= post_shop.name %></br>
+      <%= post_shop.customer.nickname %>
+      <%= link_to '編集する', "/shops/#{post_shop.id}/edit", class:"btn btn-outline-dark" %>
+      </div>
+</div>
 <% end %>
+ </div>
+</div>
