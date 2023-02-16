@@ -1,6 +1,6 @@
 <body>
   <div class = "title">
-    <h4 class="mark mb-5">お部屋編集</h4></div>
+    <h4><%= image_tag "ring.jpg", size: '80x80' %>店舗投稿編集</h4></div>
   <div class = "text">
       <%= form_with model: @post_shop, url: update_shop_path, method: :patch, remote: true do |f| %>
       <div class="container w-50">
@@ -34,6 +34,7 @@
   </div>
 
   <% end %>
+  </body>
 
 
 

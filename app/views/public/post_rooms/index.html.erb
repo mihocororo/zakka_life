@@ -1,12 +1,12 @@
+<h4><%= image_tag "lamp.jpg", size: '80x80' %>お部屋一覧
 
-<h4>お部屋一覧
-
-
+    <% if customer_signed_in? %>
     <%= link_to "新規投稿", rooms_new_path, class:"btn btn-outline-dark" %>
-
+    <% else %>
+    <% end %>
 </h4>
 
- 
+
 <div class="container">
   <div class="row">
     <div class="col-md-4 mb-4">
@@ -14,7 +14,10 @@
         見本<%= image_tag "no_image.jpg",size: "200x180", class: 'card-img-top' %>
         タイトル：</br>
         投稿者名：
+        <% if customer_signed_in? %>
         <button type="button" class="btn btn-outline-success">編集する</button>
+        <% else %>
+        <% end %>
       </div>
 </div>
 
@@ -25,7 +28,10 @@
         <%= image_tag post_room.image,size: "200x200", class: 'card-img-top' %>
         <%= post_room.name %></br>
         <%= post_room.customer.nickname %>
+        <% if current_customer %>
         <%= link_to '編集する', "/rooms/#{post_room.id}/edit", class:"btn btn-outline-dark" %>
+        <% else %>
+        <% end %>
       </div>
 </div>
 <% end %>

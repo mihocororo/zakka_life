@@ -1,6 +1,6 @@
 
 <table class="table">
-<h4 class="mark">店舗詳細</h4>
+<h4><%= image_tag "lamp.jpg", size: '80x80' %>店舗詳細</h4>
 <thead>
     <tr>
       <th>店舗画像</th>
@@ -21,6 +21,8 @@
       <% end %>
 
 </thead>
+<!--お気に入り-->
+<% if customer_signed_in? %>
  <% if @post_shop.liked_by?(current_customer) %>
 
       <td><%= link_to image_tag("star.on.png",size: '50x50'), post_shop_likes_path(@post_shop), method: :delete %></td>
@@ -48,6 +50,9 @@
 </div>
 <%= f.submit "評価する" %>
 <% end %>
+<% else %>
+<% end %>
+
 
 <% @shop_comments.each do |t| %>
 <div class="rate">

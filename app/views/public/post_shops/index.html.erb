@@ -1,5 +1,8 @@
-<h4>雑貨屋一覧
+<h4><%= image_tag "aroma.jpg", size: '80x80' %>雑貨屋一覧
+<% if customer_signed_in? %>
 <%= link_to "新規投稿", shops_new_path, class:"btn btn-outline-dark" %>
+<% else %>
+<% end %>
 </h4>
   <div class="container">
   <div class="row">

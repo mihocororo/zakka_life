@@ -1,16 +1,18 @@
+<body>
+  <div class = "title">
 <%= form_with model: @customer, url: customer_path, method: :patch, local: true do |f| %>
 
 <div class="container">
   <div class="row gx-5">
-    <div class="row row-cols-2 mb-3 p">
 
-    <div class="col mb-2"><h4 class = "mark">会員情報編集</h4></div>
-    <div class="col mb-2"></div>
 
+    <h4><%= image_tag "rabbit.jpg", size: '80x80' %>会員情報編集</h4>
 
 
 
 
+
+    <div class="row row-cols-2 ml-3">
     <div class="col mb-2"><%= f.label :名前 %></div>
     <div class="col mb-2"><%= f.text_field :name, autofocus: true, autocomplete: "name" %></div>
 
