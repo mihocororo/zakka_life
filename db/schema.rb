@@ -104,10 +104,10 @@ ActiveRecord::Schema.define(version: 2023_02_08_134720) do
     t.integer "customer_id"
     t.integer "area_id"
     t.integer "shop_comment_id"
-    t.string "name", null: false
+    t.string "name"
     t.integer "image_id"
     t.integer "nickname"
-    t.text "introduction", null: false
+    t.text "introduction"
     t.integer "star"
   end
 
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 2023_02_08_134720) do
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "star"
   end
 
   create_table "shops", force: :cascade do |t|

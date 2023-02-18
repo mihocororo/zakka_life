@@ -1,7 +1,8 @@
 class Public::ShopCommentsController < ApplicationController
+  before_action :ensure_customer,only:[:edit,:destroy,:update]
   def index
-    @shop_comments = ShopComment.where(customer_id: current_customer.id)
-    # @shop_comment = ShopComment.find(params[:id])
+    # @shop_comments = ShopComment.where(customer_id: current_customer.id)
+    @shop_comments = ShopComment.all
   end
 
   def update
@@ -21,8 +22,9 @@ class Public::ShopCommentsController < ApplicationController
   @shop_comment = ShopComment.new(shop_comment_params)
   @shop_comment.customer_id = current_customer.id
 
+
     if @shop_comment.save!
-      redirect_to shop_path
+      redirect_to shop_comments_path
     else
       redirect_to new_shop_path
     end
@@ -37,4 +39,5 @@ class Public::ShopCommentsController < ApplicationController
   def shop_comment_params
     params.require(:shop_comment).permit(:title, :learn, :about, :category, :rate,:post_shop_id)
   end
+
 end

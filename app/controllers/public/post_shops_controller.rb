@@ -1,4 +1,5 @@
 class Public::PostShopsController < ApplicationController
+  before_action :ensure_customer,only:[:edit,:destroy,:update]
   def index
     @post_shops = PostShop.all
 
@@ -9,7 +10,9 @@ class Public::PostShopsController < ApplicationController
   def show
     @post_shop = PostShop.find(params[:id])
     @shop_comment = ShopComment.new
-    @shop_comments = ShopComment.all
+    # @shop_comments = ShopComment.all
+
+
 
 
   end
@@ -21,15 +24,14 @@ class Public::PostShopsController < ApplicationController
   def create
     @post_shop = PostShop.new(post_shop_params)
     @post_shop.customer_id = current_customer.id
-    @shop_comment = ShopComment.new
-
     if @post_shop.save!
-      redirect_to shops_path(@post_shop)
+      redirect_to shops_path
     else
       redirect_to new_shop_path
     end
 
 
+    @shop_comment = ShopComment.new
 
 
 
@@ -46,6 +48,9 @@ class Public::PostShopsController < ApplicationController
   end
 
   def destroy
+    @post_shop = PostShop.find(params[:id])
+    @post_shop.destroy
+    redirect_to '/shops'
   end
 
   def destroy_all
@@ -59,7 +64,7 @@ class Public::PostShopsController < ApplicationController
 
   private
   def post_shop_params
-    params.permit(:image, :area_id, :name, :introduction, :is_active,:customer_id)
+    params.require(:post_shop).permit(:image, :area_id, :name, :introduction, :is_active,:customer_id)
   end
 
 end

@@ -28,7 +28,7 @@
         <%= image_tag post_room.image,size: "200x200", class: 'card-img-top' %>
         <%= post_room.name %></br>
         <%= post_room.customer.nickname %>
-        <% if current_customer %>
+        <% if post_room.customer == current_customer %>
         <%= link_to '編集する', "/rooms/#{post_room.id}/edit", class:"btn btn-outline-dark" %>
         <% else %>
         <% end %>

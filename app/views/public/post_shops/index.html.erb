@@ -18,9 +18,15 @@
 
 
 <% @post_shops.each do |post_shop| %>
+
 <div class="col-md-4 mb-4">
       <div class="card">
+      <% if post_shop.image.attached? %>
         <%= image_tag post_shop.image, size: "200x200", class: 'card-img-top' %>
+        <% else %>
+        <%= image_tag 'no_image', size: "200x200", class: 'card-img-top' %>
+        <% end %>
+
       <%= link_to post_shop.name, "/shops/#{post_shop.id}" ,class:"btn btn-outline-dark" %>
       <%= post_shop.customer.nickname %></br>
 

@@ -1,5 +1,3 @@
-<h1>Admin::PostShops#index</h1>
-<p>Find me in app/views/admin/post_shops/index.html.erb</p>
 
 <h4>雑貨屋投稿一覧</h4>
 
@@ -22,9 +20,9 @@
         <%= image_tag 'no_image', size: "200x200" %>
         <% end %>
       </td>
-      <td><%= post_shop.name %></td>
+      <td><%= post_shop.customer.nickname %></td>
       <td><%= post_shop.created_at.strftime('%Y/%m/%d') %></td>
-      <td><%= post_shop.area.name %></td>
+      <td><%= post_shop.area %></td>
       <td><%= post_shop.introduction %></td>
     </tr>
 <% end %>

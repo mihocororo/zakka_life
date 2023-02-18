@@ -1,14 +1,26 @@
+<h4><%= image_tag "lamp.jpg", size: '80x80' %>評価一覧</h4>
+<a>＊削除は<%= link_to "マイページ", my_page_path %>で出来ます。</a>
 
-<div>
+<table class="table">
+
+    <tr>
+      <th>雑貨屋名</th>
+      <th>評価</th>
+    </tr>
+
 <% @shop_comments.each do |t| %>
-<%= t.post_shop.name %>
-<div class="rate">
-    <% if t.rate? %>
-    <% for i in 1..t.rate do %>
-    ★
-    <% end %>
-    <% end %>
-<%= link_to "削除", destroy_shop_comment_path(t.id), method: :delete %>
+<tr>
+    <td><%= t.post_shop.name %>
+    </td>
+    <td>
+        <div class="rate">
+        <% if t.rate? %>
+        <% for i in 1..t.rate do %>
+        ★
+        <% end %>
+        <% end %></td>
+</tr>
 </div>
 
 <% end %>
+

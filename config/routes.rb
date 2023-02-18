@@ -81,10 +81,9 @@ devise_for :customers,skip: [:passwords], controllers: {
     get 'shops/new' => 'post_shops#new'
     post 'shops' => 'post_shops#create'
     get 'shops' => 'post_shops#index'
-    # get 'shops/:id' => 'post_shops#index'
     get 'shops/:id' => 'post_shops#show'
     get 'shops/:id' => 'post_shops#update'
-    get 'shops/:id' => 'post_shops#destroy'
+    delete 'shops/:id' => 'post_shops#destroy', as: 'destroy_shop'
     get 'shops/destroy_all' => 'post_shops#destroy_all'
 
     get 'shops/:id/edit' => 'post_shops#edit', as: 'edit_shop'

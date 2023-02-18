@@ -8,32 +8,43 @@
       <th>説明</th>
       <th>エリア</th>
       <th>投稿者</th>
-      </tr></thead>
+      <th></th>
+      <th></th>
+      </tr>
+</thead>
       <tr>
-      <td><%= image_tag @post_shop.image, size: "100x100" %></td>
+      <td>
+        <% if @post_shop.image.attached? %>
+        <%= image_tag @post_shop.image,size: "200x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
+      </td>
       <td><%= @post_shop.name %></td>
       <td><%= @post_shop.introduction %></td>
       <td><%= @post_shop.area.name %></td>
       <td><%= @post_shop.customer.nickname %></td>
-      <% if current_customer %>
+      <% if @post_shop.customer == current_customer %>
       <td><%= link_to '編集する', edit_shop_path, class:"btn btn-outline-success" %></td>
       <% else %>
       <% end %>
 
 </thead>
+
 <!--お気に入り-->
 <% if customer_signed_in? %>
- <% if @post_shop.liked_by?(current_customer) %>
 
-      <td><%= link_to image_tag("star.on.png",size: '50x50'), post_shop_likes_path(@post_shop), method: :delete %></td>
+
+    <% if @post_shop.liked_by?(current_customer) %>
+      <td><font size="5"><%= link_to "★", post_shop_likes_path(@post_shop), method: :delete %></font></td>
     <% else %>
-      <td><%= link_to image_tag("star.off.png",size: '50x50'), post_shop_likes_path(@post_shop), method: :post %></td>
+      <td><font size="5"><%= link_to "☆", post_shop_likes_path(@post_shop), method: :post %></font></td>
     <% end %>
-
+</table>
 
 
 <!--<= form_with model: @shop_comment, url: shop_path,local: true do |f| %>-->
-<%= form_for(@shop_comment, :url=> {controller:'public/shop_comments', action:'create'})do |f| %>
+  <%= form_for(@shop_comment, :url=> {controller:'public/shop_comments', action:'create'}) do |f| %>
 <div class= "star-field">
     <input id="star5" type="radio" name="shop_comment[rate]" value="5" />
     <label for="star5">★</label>
@@ -46,21 +57,13 @@
     <input id="star1" type="radio"  name="shop_comment[rate]" value="1" />
     <label for="star1">★</label>
 
-<%= hidden_field_tag "shop_comment[post_shop_id]", @post_shop.id %>
+  <%= hidden_field_tag "shop_comment[post_shop_id]", @post_shop.id %>
 </div>
-<%= f.submit "評価する" %>
-<% end %>
+  <%= f.submit "評価する" %>
+
+  <% end %>
+
 <% else %>
 <% end %>
 
 
-<% @shop_comments.each do |t| %>
-<div class="rate">
-    <% if t.rate? %>
-    <% for i in 1..t.rate do %>
-    ★
-    <% end %>
-    <% end %>
-</div>
-
-<% end %>
