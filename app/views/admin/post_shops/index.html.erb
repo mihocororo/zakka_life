@@ -1,7 +1,6 @@
 
 <h4>雑貨屋投稿一覧</h4>
 
-  <!--<div class="col-md-8 offset-md-1">-->
 <table class="table">
 
     <tr>
@@ -22,9 +21,8 @@
       </td>
       <td><%= post_shop.customer.nickname %></td>
       <td><%= post_shop.created_at.strftime('%Y/%m/%d') %></td>
-      <td><%= post_shop.area %></td>
+      <td><%= post_shop.area.name %></td>
       <td><%= post_shop.introduction %></td>
     </tr>
 <% end %>
 </table>
-<!--</div>-->

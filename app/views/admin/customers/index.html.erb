@@ -3,6 +3,8 @@
     <h4 class = "mark">会員一覧</h4>
   </div>
   <div class = "text">
+  <table class="table">
+
     <tr>
       <th>会員ID</th>
       <th>氏名</th>
@@ -13,16 +15,22 @@
 <% @customers.each do |customer| %>
 <tr>
       <td><%= customer.id %></td>
+      <% if admin_signed_in? %>
       <td><%= link_to customer.name,admin_customer_path(customer),class:"btn btn-outline-danger" %></td>
+      <% else %>
+      <td><%= customer.name %></td>
+      <% end %>
       <td><%= customer.nickname %></td>
       <td><%= customer.email %></td>
       <td>
       <% if customer.is_deleted== false %>有効
       <% else %>
       退会
+      <% end %></td>
+  </tr>
       <% end %>
-      <% end %>
-      </td></tr>
+ </table>
+
       <%= paginate @customers %>
     </div>
 </body>

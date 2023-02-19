@@ -17,21 +17,11 @@ devise_for :customers,skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
 
-  namespace :admin do
-    #店舗
-    get 'post_shops/show'
-    get 'post_shops/update'
-    get 'post_shops/index'
-    #部屋
-    get 'post_rooms/show'
-    get 'post_rooms/update'
-    get 'post_rooms/index'
-  end
 
 
 #管理者
   namespace :admin do
-
+    root to: 'homes#top'
     get '/' => 'homes#top'
     resources :post_rooms, only: [:show, :update,:index]
     resources :post_shops, only: [:show, :update,:index]
@@ -43,11 +33,19 @@ devise_for :customers,skip: [:passwords], controllers: {
     get 'genres/edit'
     get 'genres/update'
 
+    #エリア
     resources :areas
-    # get 'areas/index'
-    # get 'areas/create'
-    # get 'areas/edit'
-    # get 'areas/update'
+
+
+    #店舗
+    get 'post_shops/show'
+    get 'post_shops/update'
+    get 'post_shops/index'
+    #部屋
+    get 'post_rooms/show'
+    get 'post_rooms/update'
+    get 'post_rooms/index'
+
 
   #顧客情報
     resources :customers, only: [:index, :show, :edit, :update]
@@ -58,6 +56,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 
 #ユーザー
   scope module: :public do
+    root to: 'homes#top'
 
   #レビュー機能
     resources :shop_comments, only: [:show, :index, :update, :new, :edit, :create] do
