@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 2023_02_08_134720) do
     t.integer "customer_id", null: false
     t.integer "post_shop_id", null: false
     t.index ["customer_id"], name: "index_likes_on_customer_id"
-    t.index ["post_shop_id"], name: "index_likes_on_post_shop_id"
   end
 
   create_table "post_rooms", force: :cascade do |t|
@@ -142,5 +141,4 @@ ActiveRecord::Schema.define(version: 2023_02_08_134720) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "likes", "customers"
-  add_foreign_key "likes", "post_shops"
 end
