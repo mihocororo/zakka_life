@@ -42,8 +42,12 @@
     <% end %>
 </table>
 
+<table class="table">
+<thead>
+    <tr>
+      <th>星評価</th>
+      <th>
 
-<!--<= form_with model: @shop_comment, url: shop_path,local: true do |f| %>-->
   <%= form_for(@shop_comment, :url=> {controller:'public/shop_comments', action:'create'}) do |f| %>
 <div class= "star-field">
     <input id="star5" type="radio" name="shop_comment[rate]" value="5" />
@@ -58,13 +62,16 @@
     <label for="star1">★</label>
 
   <%= hidden_field_tag "shop_comment[post_shop_id]", @post_shop.id %>
-</div>
-<div class="row row-cols-2 mb-2">
-      <div class="col">コメント</div>
-      <div class="col"><%= f.text_field :comment %></div>
-    </div>
-  <%= f.submit "評価する" %>
-
+</div></th></tr>
+<tr>
+<th>コメント</th>
+<th><%= f.text_field :comment %></th>
+</tr>
+<tr>
+  <th></th>
+  <th>
+  <%= f.submit "評価する" %></th>
+</tr>
   <% end %>
 
 <% else %>
