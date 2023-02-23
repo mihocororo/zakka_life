@@ -28,7 +28,7 @@
       <div class="col"></div>
       <div class="col"><%= f.submit '変更を保存' %></div>
     </div>
-    <%= link_to "投稿を削除", destroy_shop_path(@post_shop.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <%= link_to "投稿を削除", destroy_shop_path(@post_shop.id),class:"btn btn-outline-dark", method: :delete, "data-confirm" => "本当に削除しますか？" %>
 
   </div>
   </div>

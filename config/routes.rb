@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
 
+  namespace :admin do
+    get 'shop_comments/show'
+    get 'shop_comments/index'
+    get 'shop_comments/destroy'
+  end
   # namespace :public do
   #   get 'areas/index'
   # end
@@ -24,7 +29,8 @@ devise_for :customers,skip: [:passwords], controllers: {
     root to: 'homes#top'
     get '/' => 'homes#top'
     resources :post_rooms, only: [:show, :update,:index]
-    resources :post_shops, only: [:show, :update,:index]
+    resources :post_shops, only: [:show, :update,:index,:destroy]
+    delete 'shop_comments/:id' => 'shop_comments#destroy', as: 'destroy_shop_comment'
 
 
 
@@ -38,13 +44,15 @@ devise_for :customers,skip: [:passwords], controllers: {
 
 
     #店舗
-    get 'post_shops/show'
+    get 'post_shops/:id' => 'post_shops#show'
     get 'post_shops/update'
     get 'post_shops/index'
+    delete 'post_shops/:id' => 'post_shops#destroy', as: 'destroy_post_shop'
     #部屋
-    get 'post_rooms/show'
+    get 'post_rooms/:id' => 'post_rooms#show'
     get 'post_rooms/update'
     get 'post_rooms/index'
+    delete 'post_rooms/:id' => 'post_rooms#destroy', as: 'destroy_post_room'
 
 
   #顧客情報
@@ -71,6 +79,7 @@ devise_for :customers,skip: [:passwords], controllers: {
     get 'rooms' => 'post_rooms#index'
     get 'rooms/:id' => 'post_rooms#update'
     get 'rooms/:id' => 'post_rooms#destroy'
+    delete 'rooms/:id' => 'post_rooms#destroy', as: 'destroy_room'
     get 'rooms/destroy_all' => 'post_rooms#destroy_all'
 
     get 'rooms/:id/edit' => 'post_rooms#edit', as: 'edit_room'

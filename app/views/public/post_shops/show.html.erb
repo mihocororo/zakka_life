@@ -59,6 +59,10 @@
 
   <%= hidden_field_tag "shop_comment[post_shop_id]", @post_shop.id %>
 </div>
+<div class="row row-cols-2 mb-2">
+      <div class="col">コメント</div>
+      <div class="col"><%= f.text_field :comment %></div>
+    </div>
   <%= f.submit "評価する" %>
 
   <% end %>

@@ -1,5 +1,5 @@
 class Public::ShopCommentsController < ApplicationController
- 
+
   def index
     # @shop_comments = ShopComment.where(customer_id: current_customer.id)
     @shop_comments = ShopComment.all
@@ -37,7 +37,7 @@ class Public::ShopCommentsController < ApplicationController
   end
   private
   def shop_comment_params
-    params.require(:shop_comment).permit(:title, :learn, :about, :category, :rate,:post_shop_id)
+    params.require(:shop_comment).permit(:title, :learn, :about, :category, :rate,:post_shop_id,:comment)
   end
 
 end

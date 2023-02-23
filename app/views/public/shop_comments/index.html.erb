@@ -9,6 +9,7 @@
     <tr>
       <th>雑貨屋名</th>
       <th>評価</th>
+      <th>コメント</th>
     </tr>
 
 <% @shop_comments.each do |t| %>
@@ -22,7 +23,9 @@
         ★
         <% end %>
         <% end %></td>
+    <td><%= t.comment %></td>
 </tr>
+
 </div>
 
 <% end %>

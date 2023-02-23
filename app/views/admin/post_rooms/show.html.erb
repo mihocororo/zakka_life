@@ -1,2 +1,25 @@
-<h1>Admin::PostRooms#show</h1>
-<p>Find me in app/views/admin/post_rooms/show.html.erb</p>
+<h4>お部屋紹介詳細</h4>
+
+  <div class="col-md-8 offset-md-1">
+<table class="table">
+
+    <tr>
+      <th>投稿写真</th>
+      <th>投稿者名</th>
+      <th>コメント</th>
+    </tr>
+    <tr>
+      <td>
+<% if @post_room.image.attached? %>
+        <%= image_tag @post_room.image,size: "200x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
+      </td>
+      <td><%= @post_room.name %></td>
+      <td><%= @post_room.customer.nickname %></td>
+      <td><%= @post_room.comment %></td>
+      <td><%= link_to "削除する", admin_destroy_post_room_path(@post_room.id), class:"btn btn-outline-dark",method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+      </tr>
+</table>
+</div>

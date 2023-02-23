@@ -53,31 +53,48 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
 
-    <a class="navbar-brand" href="/">TOP</a>
+   <a class="navbar-brand" href="/">TOP</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
+          <a class="nav-link active" aria-current="page" href="/about">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/shops">雑貨屋一覧</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/rooms">お部屋一覧</a>
+          <a class="nav-link active" aria-current="page" href="/rooms">お部屋一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/shop_comments">評価一覧</a>
         </li>
         <li class="nav-item">
         <% if customer_signed_in? %>
-        <a class="nav-link px-2" href="/customers/sign_out">ログアウト</a>
+        <a class="nav-link active" aria-current="page" href="/my_page">マイページ</a>
         <% else %>
-        <a class="nav-link px-2" href="/customers/sign_in">ログイン</a>
         <% end %>
+        <li class="nav-item">
+        <% if customer_signed_in? %>
+        <a class="nav-link active" aria-current="page" href="/customers/sign_out">ログアウト</a>
+        <% else %>
+        <a class="nav-link active" aria-current="page" href="/customers/sign_in">ログイン</a>
+        <% end %>
+        <li class="nav-item">
+        <% if customer_signed_in? %>
+        <% else %>
+        <a class="nav-link active" aria-current="page" href="/customers/sign_up">会員登録</a>
+        <% end %>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link px-2" href="/admin/sign_in">管理者</a>
         </li>
     </div>
   </div>
 </nav>
+
 </header>
 <% end %>
 

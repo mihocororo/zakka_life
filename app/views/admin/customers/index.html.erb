@@ -33,4 +33,35 @@
 
       <%= paginate @customers %>
     </div>
+
+<div class = "title">
+    <h4 class = "mark">星評価一覧</h4>
+  </div>
+  <div class = "text">
+  <table class="table">
+
+<% @shop_comments.each do |t| %>
+  <tbody>
+    <tr>
+      <td>店舗名</td>
+      <td><%= t.post_shop.name %></td>
+    </tr>
+
+    <tr>
+    <td>星評価</td>
+    <td><% if t.rate? %>
+    <% for i in 1..t.rate do %>
+    ★
+    <% end %>
+    <% end %></td>
+    </tr>
+    <tr>
+      <td>コメント</td>
+      <td><%= t.comment %></td>
+    </tr>
+    <tr>
+    <td><%= link_to "削除", admin_destroy_shop_comment_path(t.id), method: :delete %></td>
+    <td></td>
+    </tr>
+<% end %></table>
 </body>

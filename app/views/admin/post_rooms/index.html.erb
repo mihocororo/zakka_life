@@ -24,6 +24,7 @@
       <%= post_room.created_at.strftime('%Y/%m/%d') %>
       </td>
       <td><%= post_room.comment %></td>
+      <td><%= link_to '編集する', "/admin/post_rooms/#{post_room.id}", class:"btn btn-outline-dark" %></td>
     </tr>
 <% end %>
 </table>

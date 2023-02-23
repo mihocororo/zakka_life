@@ -20,12 +20,12 @@
       <div class="col"></div>
       <div class="col"><%= f.submit '変更を保存' %></div>
     </div>
-
-
   </div>
   </div>
-
     <% end %>
+    <div class="row row-cols-2 mb-2">
+      <div class="col"></div>
+      <div><%= link_to "削除する", destroy_room_path(@post_room.id), class:"btn btn-outline-dark",method: :delete, "data-confirm" => "本当に削除しますか？" %></div>
 
 </body>
 

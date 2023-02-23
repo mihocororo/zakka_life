@@ -15,6 +15,9 @@ class Public::PostRoomsController < ApplicationController
   end
 
   def destroy
+    @post_room = PostRoom.find(params[:id])
+    @post_room.destroy
+    redirect_to '/rooms'
   end
 
   def create

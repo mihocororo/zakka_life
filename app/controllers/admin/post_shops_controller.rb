@@ -7,6 +7,12 @@ class Admin::PostShopsController < ApplicationController
   def update
   end
 
+  def destroy
+    @post_shop = PostShop.find(params[:id])
+    @post_shop.destroy
+    redirect_to '/admin/post_shops'
+  end
+
 
   def index
     @post_shops = PostShop.all
