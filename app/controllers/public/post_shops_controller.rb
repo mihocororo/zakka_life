@@ -1,5 +1,5 @@
 class Public::PostShopsController < ApplicationController
-  before_action :ensure_customer,only:[:edit,:destroy,:update]
+  # before_action :ensure_customer,only:[:edit,:destroy,:update]
   def index
     @post_shops = PostShop.all
 

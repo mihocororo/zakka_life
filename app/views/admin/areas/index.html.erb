@@ -19,9 +19,10 @@
   </div>
 
   <div class="actions2">
-
+      <% if admin_signed_in? %>
       <%= f.submit "新規登録",class:"btn btn-outline-danger mt-5" %>
-
+      <% else %>
+      <% end %>
     <% end %>
   </div>
     </div>
@@ -40,9 +41,10 @@
       <% @areas.each do |area| %>
       <tr>
         <td><%= area.name %></td>
-
+        <% if admin_signed_in? %>
         <td><%= link_to "編集する", edit_admin_area_path(area) ,class:"btn btn-outline-success" %></td>
-
+        <% else %>
+        <% end %>
       </tr>
       <% end %>
     </tbody>

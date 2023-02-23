@@ -26,21 +26,11 @@
 
 
 
-    <div class="col mb-2"><%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br /></div>
-    <div class="col mb-2"><%= f.password_field :password, autocomplete: "new-password" %></div>
-
-
-
-    <div class="col mb-2"><%= f.label :パスワード（確認用） %></div>
-    <div class="col mb-2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
-
-
 
     <div class="col mb-2"><%= f.submit "編集内容を保存",class:"btn btn-outline-success mt-2" %></div>
     <div class="col mb-2"><a class="btn btn-outline-danger mt-2" href="/unsubscribe" role="button">退会する</a></div>
   </div>
   </div>
+
+
 <% end %>

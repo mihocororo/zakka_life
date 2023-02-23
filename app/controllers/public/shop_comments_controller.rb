@@ -1,5 +1,5 @@
 class Public::ShopCommentsController < ApplicationController
-  before_action :ensure_customer,only:[:edit,:destroy,:update]
+ 
   def index
     # @shop_comments = ShopComment.where(customer_id: current_customer.id)
     @shop_comments = ShopComment.all
