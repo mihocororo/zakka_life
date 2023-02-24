@@ -1,5 +1,4 @@
 class Public::PostShopsController < ApplicationController
-  # before_action :ensure_customer,only:[:edit,:destroy,:update]
   def index
     @post_shops = PostShop.all
 
@@ -10,10 +9,7 @@ class Public::PostShopsController < ApplicationController
   def show
     @post_shop = PostShop.find(params[:id])
     @shop_comment = ShopComment.new
-    # @shop_comments = ShopComment.all
-
-
-
+   
 
   end
 

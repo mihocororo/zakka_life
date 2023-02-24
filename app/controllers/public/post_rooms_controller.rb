@@ -1,7 +1,6 @@
 class Public::PostRoomsController < ApplicationController
   def index
     @post_rooms = PostRoom.all
-    # @post_room = PostRoom.find(params[:id])
 
   end
 

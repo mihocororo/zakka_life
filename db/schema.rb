@@ -110,14 +110,6 @@ ActiveRecord::Schema.define(version: 2023_02_08_134720) do
     t.integer "star"
   end
 
-  create_table "rooms", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "title", null: false
-    t.text "comment", null: false
-    t.string "nickname", null: false
-  end
-
   create_table "shop_comments", force: :cascade do |t|
     t.integer "post_shop_id", null: false
     t.integer "customer_id", null: false
@@ -126,16 +118,6 @@ ActiveRecord::Schema.define(version: 2023_02_08_134720) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "star"
-  end
-
-  create_table "shops", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "genre_id"
-    t.string "name", null: false
-    t.text "introduction", null: false
-    t.string "nickname", null: false
-    t.integer "area_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

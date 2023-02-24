@@ -1,6 +1,5 @@
 class Public::LikesController < ApplicationController
-    # before_action :set_post_shop
-    before_action :authenticate_customer!   # ログイン中のユーザーのみに許可（未ログインなら、ログイン画面へ移動）
+    before_action :authenticate_customer!
 
   # お気に入り登録
   def create

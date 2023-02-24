@@ -4,11 +4,10 @@ class Public::AreasController < ApplicationController
     @post_shops = PostShop.all
     @areas = Area.all
 
-    # if params[:area_id].present?
-      # params[:category_id]
+    
       @area = Area.find(params[:id])
       @post_shops = @area.post_shops
-    # end
+    
   end
 
 
