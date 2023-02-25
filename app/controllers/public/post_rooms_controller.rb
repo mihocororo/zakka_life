@@ -23,10 +23,10 @@ class Public::PostRoomsController < ApplicationController
     @post_room = PostRoom.new(post_room_params)
     @post_room.customer_id = current_customer.id
 
-    if @post_room.save!
+    if @post_room.save
       redirect_to rooms_path(@post_room)
     else
-      redirect_to new_room_path
+      render :new
     end
 
 

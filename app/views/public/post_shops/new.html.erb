@@ -1,3 +1,12 @@
+<!--空欄時エラー-->
+<% if @post_shop.errors.any? %>
+  <%= @post_shop.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @post_shop.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <body>
   <div class = "title">
     <h4><%= image_tag "chair.jpg", size: '80x80' %>おすすめの雑貨屋新規投稿</h4></div>

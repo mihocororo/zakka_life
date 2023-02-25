@@ -1,3 +1,13 @@
+<!--空欄時エラー-->
+<% if @post_room.errors.any? %>
+  <%= @post_room.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @post_room.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <body>
   <div class = "title">
     <h4><%= image_tag "flower.jpg", size: '80x80' %>お部屋紹介</h4></div>

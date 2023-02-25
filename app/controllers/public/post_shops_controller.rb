@@ -20,10 +20,10 @@ class Public::PostShopsController < ApplicationController
   def create
     @post_shop = PostShop.new(post_shop_params)
     @post_shop.customer_id = current_customer.id
-    if @post_shop.save!
+    if @post_shop.save
       redirect_to shops_path
     else
-      redirect_to new_shop_path
+      render :new
     end
 
 

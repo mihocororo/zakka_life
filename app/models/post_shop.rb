@@ -10,7 +10,10 @@ class PostShop < ApplicationRecord
 
   has_many :shop_comments
   accepts_nested_attributes_for :shop_comments
-  # validates :name, presence: true
+  validates :image, presence: true
+  validates :introduction, presence: true
+  validates :name, presence: true
+  validates :area_id, presence: true
   # belongs_to :shop_comment, class_name: "Comment"
 
 end
