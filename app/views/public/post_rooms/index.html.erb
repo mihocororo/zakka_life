@@ -12,8 +12,8 @@
     <div class="col-md-4 mb-4">
       <div class="card">
         見本<%= image_tag "no_image.jpg",size: "200x180", class: 'card-img-top' %>
-        タイトル：</br>
-        投稿者名：
+        タイトル：（投稿者名）</br>
+        コメント：
         <% if customer_signed_in? %>
         <button type="button" class="btn btn-outline-success">編集する</button>
         <% else %>
@@ -26,8 +26,8 @@
 <div class="col-md-4 mb-4">
       <div class="card">
         <%= image_tag post_room.image,size: "200x200", class: 'card-img-top' %>
-        <%= post_room.name %></br>
-        <%= post_room.customer.nickname %>
+        <%= post_room.name %>（<%= post_room.customer.nickname %>）</br>
+        <%= post_room.comment %>
         <% if post_room.customer == current_customer %>
         <%= link_to '編集する', "/rooms/#{post_room.id}/edit", class:"btn btn-outline-dark" %>
         <% else %>
