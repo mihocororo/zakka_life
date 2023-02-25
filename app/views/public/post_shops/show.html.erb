@@ -29,7 +29,7 @@
       <% else %>
       <% end %>
 
-</thead>
+<!--</thead>-->
 
 <!--お気に入り-->
 <% if customer_signed_in? %>
@@ -39,40 +39,46 @@
       <td><font size="5"><%= link_to "★", post_shop_likes_path(@post_shop), method: :delete %></font></td>
     <% else %>
       <td><font size="5"><%= link_to "☆", post_shop_likes_path(@post_shop), method: :post %></font></td>
-    <% end %>
+    <% end %></tr>
 </table>
 
+
+<%= form_for(@shop_comment, :url=> {controller:'public/shop_comments', action:'create'}) do |f| %>
 <table class="table">
 <thead>
     <tr>
       <th>星評価</th>
-      <th>
 
-  <%= form_for(@shop_comment, :url=> {controller:'public/shop_comments', action:'create'}) do |f| %>
-<div class= "star-field">
-    <input id="star5" type="radio" name="shop_comment[rate]" value="5" />
-    <label for="star5">★</label>
-    <input id="star4" type="radio"  name="shop_comment[rate]" value="4" />
-    <label for="star4">★</label>
-    <input id="star3" type="radio"  name="shop_comment[rate]" value="3" />
-    <label for="star3">★</label>
-    <input id="star2" type="radio"  name="shop_comment[rate]" value="2" />
-    <label for="star2">★</label>
-    <input id="star1" type="radio"  name="shop_comment[rate]" value="1" />
-    <label for="star1">★</label>
 
-  <%= hidden_field_tag "shop_comment[post_shop_id]", @post_shop.id %>
-</div></th>
-</tr>
-<tr>
-<th>コメント</th>
-<th><%= f.text_field :comment %></th>
-  <th></th>
-  <th>
-  <%= f.submit "評価する" %></th>
-</tr>
-  <% end %>
 
+      <td>
+      <div class= "star-field">
+        <input id="star5" type="radio" name="shop_comment[rate]" value="5" />
+        <label for="star5">★</label>
+        <input id="star4" type="radio"  name="shop_comment[rate]" value="4" />
+        <label for="star4">★</label>
+        <input id="star3" type="radio"  name="shop_comment[rate]" value="3" />
+        <label for="star3">★</label>
+        <input id="star2" type="radio"  name="shop_comment[rate]" value="2" />
+        <label for="star2">★</label>
+        <input id="star1" type="radio"  name="shop_comment[rate]" value="1" />
+        <label for="star1">★</label>
+      </td>
+      <%= hidden_field_tag "shop_comment[post_shop_id]", @post_shop.id %>
+      </div>
+      <th></th>
+    </tr>
+</thead>
+    <tr>
+    <th>コメント</th>
+    <td><%= f.text_field :comment %></td>
+    <th></th>
+    <td>
+      <%= f.submit "評価する" %></td>
+    </tr>
+
+<% end %>
+</table>
 <% else %>
 <% end %>
 
