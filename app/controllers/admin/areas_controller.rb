@@ -18,6 +18,12 @@ class Admin::AreasController < ApplicationController
     @area = Area.find(params[:id])
   end
 
+  def destroy
+  @area = Area.find(params[:id])
+    @area.destroy
+    redirect_to '/admin/areas'
+  end
+
   def update
     @area = Area.find(params[:id])
     if @area.update(area_params)

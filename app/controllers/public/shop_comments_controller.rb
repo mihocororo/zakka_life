@@ -26,6 +26,7 @@ class Public::ShopCommentsController < ApplicationController
     if @shop_comment.save
       redirect_to shop_comments_path
     else
+      redirect_to shops_path
     end
   end
 

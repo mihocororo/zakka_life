@@ -41,6 +41,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 
     #エリア
     resources :areas
+    delete 'areas/:id' => 'areas#destroy', as: 'destroy_area'
 
 
     #店舗
