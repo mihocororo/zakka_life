@@ -23,10 +23,9 @@ class Public::ShopCommentsController < ApplicationController
   @shop_comment.customer_id = current_customer.id
 
 
-    if @shop_comment.save!
+    if @shop_comment.save
       redirect_to shop_comments_path
     else
-      redirect_to new_shop_path
     end
   end
 
