@@ -21,7 +21,7 @@
       <td><%= t.comment %></td>
     </tr>
     <tr>
-    <td><%= link_to "削除", destroy_shop_comment_path(t.id), method: :delete %></td>
+    <td><%= link_to "削除", destroy_shop_comment_path(t.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
     <td></td>
     </tr>
 <% end %></table>
