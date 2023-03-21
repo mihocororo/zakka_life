@@ -1,6 +1,7 @@
 class Public::PostRoomsController < ApplicationController
   def index
-    @post_rooms = PostRoom.all
+    # @post_rooms = PostRoom.all
+    @post_rooms = PostRoom.page(params[:page])
 
   end
 

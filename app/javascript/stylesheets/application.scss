@@ -76,11 +76,11 @@ header {
 }
 
 p{
-    position: absolute;
-    top:30%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    font-size:30px;
+  position: absolute;
+  top:30%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  font-size:30px;
 
 
 }
@@ -92,24 +92,24 @@ p{
 
 // お気に入り
 .star-field{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: right;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: right;
 }
 .star-field input[type='radio']{
-    display: none;
+  display: none;
 }
 .star-field label{
-    font-size: 50px;
-    padding-right: 10px;
-    color: #ccc;
-    font-size: 30px;
-    cursor: pointer;
+  font-size: 50px;
+  padding-right: 10px;
+  color: #ccc;
+  font-size: 30px;
+  cursor: pointer;
 }
 .star-field label:hover,
 .star-field label:hover ~ label,
 .star-field input[type='radio']:checked ~ label{
-    color: rgb(255, 145, 0);
+  color: rgb(255, 145, 0);
 }
 
 // 一覧表示ページ
@@ -118,3 +118,7 @@ p{
   color: rgb(255, 145, 0);
 }
 
+footer{
+  height: 50px;
+
+}
