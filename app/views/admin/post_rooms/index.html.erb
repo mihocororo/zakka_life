@@ -7,7 +7,7 @@
     <tr>
       <th>投稿写真</th>
       <th>投稿者名</th>
-      <th>投稿日</th>
+      <th>投稿日時</th>
       <th>コメント</th>
     </tr>
 <% @post_rooms.each do |post_room| %>
@@ -21,7 +21,7 @@
       </td>
       <td><%= post_room.name %></td>
       <td>
-      <%= post_room.created_at.strftime('%Y/%m/%d') %>
+      <%= post_room.created_at.strftime('%Y/%m/%d(%R)') %>
       </td>
       <td><%= post_room.comment %></td>
       <td><%= link_to '編集する', "/admin/post_rooms/#{post_room.id}", class:"btn btn-outline-dark" %></td>
