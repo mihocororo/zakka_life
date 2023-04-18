@@ -1,6 +1,8 @@
 class Public::PostShopsController < ApplicationController
+before_action :ensure_current_customer, {only: [:edit,:update]}
+
+
   def index
-    # @post_shops = PostShop.all
     @post_shops = PostShop.page(params[:page])
 
   end
@@ -64,9 +66,14 @@ class Public::PostShopsController < ApplicationController
     params.require(:post_shop).permit(:image, :area_id, :name, :introduction, :is_active,:customer_id)
   end
 
-before_action :ensure_current_user, {only: [:edit, :update]}
-  def ensure_current_user
-     redirect_to("/shops")
+  def ensure_current_customer
+    @post_shop = PostShop.find(params[:id])
+    unless @post_shop.customer == current_customer
+    redirect_to("/shops")
+    end
   end
+
+
+
 
 end
