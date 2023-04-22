@@ -1,4 +1,6 @@
 class Public::PostRoomsController < ApplicationController
+  before_action :ensure_current_customer, {only: [:edit,:update]}
+
   def index
     # @post_rooms = PostRoom.all
     @post_rooms = PostRoom.page(params[:page])
@@ -47,9 +49,12 @@ class Public::PostRoomsController < ApplicationController
     params.require(:post_room).permit(:name, :comment, :image,:customer_id)
   end
 
-before_action :ensure_current_user, {only: [:edit, :update]}
-  def ensure_current_user
-     redirect_to("/rooms")
+
+  def ensure_current_customer
+    @post_room = PostRoom.find(params[:id])
+    unless @post_room.customer == current_customer
+    redirect_to("/rooms")
+    end
   end
 
 end
