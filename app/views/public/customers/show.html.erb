@@ -6,7 +6,10 @@
   <tbody>
     <tr>
       <td>店舗名</td>
-      <td><%= t.post_shop.name %></td>
+      <td>
+      <%= link_to post_shop_path(t.post_shop) do %>
+      <%= t.post_shop.name %>
+      <% end %></td>
     </tr>
     <tr>
     <td>星評価</td>
