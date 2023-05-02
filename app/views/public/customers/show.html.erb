@@ -1,7 +1,7 @@
 <h4><%= image_tag "cat.jpg", size: '80x80' %>マイページ</h4>
-<div class="sidebar">
-<h4>星評価一覧</h4>
-<table>
+<div class="mysidebar">
+<h4>☆星評価一覧</h4>
+<table class="mytable">
 <% @shop_comments.each do |t| %>
   <tbody>
     <tr>
@@ -30,9 +30,9 @@
 <% end %></table>
 </div>
 
-<div class="sidebar">
-  <h4>お気に入り一覧</h4>
-  <table>
+<div class="mysidebar">
+  <h4>☆お気に入り一覧</h4>
+  <table class="mytable">
   <% @likes.each do |like| %>
   <tbody>
     <tr>
@@ -57,7 +57,7 @@
 </table>
 </div>
 
-<div class = "topmenu">
+<div class = "mypage">
 
 
 <a>登録情報</a> <a class="btn btn-outline-success m-5" href="/customers/information/edit" role="button">編集する</a>
