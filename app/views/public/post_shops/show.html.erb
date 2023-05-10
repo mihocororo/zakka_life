@@ -35,7 +35,6 @@
 <!--お気に入り-->
 <% if customer_signed_in? %>
 
-
     <% if @post_shop.liked_by?(current_customer) %>
       <td><font size="5"><%= link_to "★", post_shop_likes_path(@post_shop), method: :delete %></font></td>
     <% else %>
