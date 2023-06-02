@@ -10,4 +10,6 @@
     <%= f.submit "変更を保存",class:"btn btn-outline-success mt-5" %></br>
 </div>
   <% end %>
+
+  <!--削除ボタン-->
   <%= link_to "削除する", admin_destroy_area_path,class:"btn btn-outline-dark mt-5",method: :delete, "data-confirm" => "本当に削除しますか？" %>
