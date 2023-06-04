@@ -1,9 +1,6 @@
 class Admin::ShopCommentsController < ApplicationController
-  def show
-  end
 
-  def index
-  end
+
 
   def destroy
     shop_comment = ShopComment.find(params[:id])
