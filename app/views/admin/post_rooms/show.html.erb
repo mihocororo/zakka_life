@@ -1,7 +1,7 @@
 <h4>お部屋紹介詳細</h4>
 
-  <div class="col-md-8 offset-md-1">
-<table class="table">
+<div class="col-md-8 offset-md-1">
+  <table class="table">
 
     <tr>
       <th>投稿写真</th>
@@ -10,7 +10,7 @@
     </tr>
     <tr>
       <td>
-<% if @post_room.image.attached? %>
+      <% if @post_room.image.attached? %>
         <%= image_tag @post_room.image,size: "200x200" %>
       <% else %>
         <%= image_tag 'no_image', size: "200x200" %>
@@ -21,5 +21,5 @@
       <td><%= @post_room.comment %></td>
       <td><%= link_to "削除する", admin_destroy_post_room_path(@post_room.id), class:"btn btn-outline-dark",method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
       </tr>
-</table>
+  </table>
 </div>

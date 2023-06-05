@@ -1,8 +1,8 @@
 
 <h4>お部屋紹介投稿一覧</h4>
 
-  <div class="col-md-8 offset-md-1">
-<table class="table">
+<div class="col-md-8 offset-md-1">
+  <table class="table">
 
     <tr>
       <th>投稿写真</th>
@@ -10,6 +10,7 @@
       <th>投稿日時</th>
       <th>コメント</th>
     </tr>
+    
 <% @post_rooms.each do |post_room| %>
     <tr>
       <td>
@@ -27,7 +28,7 @@
       <td><%= link_to '編集する', "/admin/post_rooms/#{post_room.id}", class:"btn btn-outline-dark" %></td>
     </tr>
 <% end %>
-</table>
+  </table>
 </div>
 
 <footer><%= paginate @post_rooms %></footer>
